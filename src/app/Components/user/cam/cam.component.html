@@ -1,0 +1,284 @@
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <video class="right" #video style="width:100%;"></video>
+      </div>
+      <div class="modal-footer">
+        <button (click) = 'VideoPlay()' type="button" class="btn btn-default"><i class="fa fa-play" aria-hidden="true"></i></button>
+        <button (click) = 'videoPause()' type="button" class="btn btn-default" ><i class="fa fa-pause" aria-hidden="true"></i></button>
+        <button (click) = 'download()' type="button" class="btn btn-default"><i class="fa fa-download" aria-hidden="true"></i></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)='videoclose()'><i class="fa fa-times" aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="mic" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content sethight">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Switch preferred camera and microphone</h4>
+            <video #videoModal style="width:50%; margin-left: 130px;" autoplay="autoplay"></video> 
+          </div>
+      <div class="modal-body">
+          <p class="centered help-text">If you are having problems, try restarting your browser.</p>
+          <div class="col-md-12 camsec">
+            <div class="col-md-6">
+                <h3>camera</h3>
+                <select class="form-control">
+                    <option value="0" *ngFor = 'let player of Videoplayer' >{{player.label}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">   
+          <h3>Microphone</h3>
+          <select class="form-control">
+              <option value="0" *ngFor = 'let com of communication'>{{com.label}}</option>
+          </select>
+              </div>
+          </div>
+          <div class="col-md-12 videosec">
+            <div class="col-md-6">
+                <h3>Video Quality</h3>
+                <label class="radio-inline"><input type="radio" name="optradio" checked>Good</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Low</label>
+            </div>
+            <div class="col-md-6">
+                <h3>Sound Output</h3>
+                <select class="form-control">
+                    <option value="0" *ngFor = 'let speaker of speakers'>{{speaker.label}}</option>
+                </select>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <div class="col-md-12 footerchnag">
+          <div class="col-md-8">
+              <p class="help-text">Updating preferences may refresh your browser window. You will automatically rejoin the conversation.</p>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-primary">save</button>
+          </div>
+        </div>       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="room-state-switcher fill-height">
+  <div class="wrapper frontpage-content-wrapper">
+    <div class="full-page-container jstest-full-page-container pro-room">
+      <div class="space">
+        <header class="video-space-header jstest-header screen-element">
+          <div class="content-wrapper">
+            <div class="logo-wrapper jstest-logo-wrapper">
+              <a [routerLink]="['/']" target="_self" title="Go to whereby.com">
+                <div class="logo">
+                    <svg width="100%" height="100%" viewBox="0 0 411 316" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M342.17 187.393C342.17 199.26 332.281 208.886 320.216 208.886H66.5222C54.4573 208.886 44.5679 199.194 44.5679 187.393V21.5821C44.5679 9.71491 54.4573 0.0892944 66.5222 0.0892944H320.216C332.281 0.0892944 342.17 9.78084 342.17 21.5821V187.393Z" fill="#38CD8B"></path>
+                      <path d="M276.703 45.3164H21.9543C9.88932 45.3164 0 55.4035 0 67.2707V232.159C0 244.026 9.88932 254.113 21.9543 254.113H95.9264L202.797 315.888V254.113H276.769C288.834 254.113 298.723 244.026 298.723 232.159V67.2707C298.657 55.4694 288.768 45.3164 276.703 45.3164Z" fill="#FF2E63"></path>
+                      <path d="M402.231 207.699L373.552 184.426C367.619 179.613 364.125 172.032 364.125 163.988V44.9209C364.125 36.8775 367.619 29.2957 373.552 24.4829L402.231 1.21006C405.857 -1.75674 411 1.0782 411 5.95693V202.886C411 207.831 405.857 210.6 402.231 207.699Z" fill="#38CD8B"></path>
+                      <path d="M94.8711 100.631L121.177 157.923L149.526 91.4666L178.073 157.923L204.049 100.631H230.025L177.48 208.556L149.46 143.88L121.243 208.49L68.7633 100.565H94.8711V100.631Z" fill="white"></path>
+                    </svg>
+                </div>
+              </a>
+              <span class="room-type-text">
+                FREE
+              </span>
+            </div>
+            <div class="room-url-wsrapper" analytics-event="copyUrlAnalyticsEvent" ng-if="isCopyLinkEnabled()">
+              <div class="room-url">
+                <input type="text" class="text user-select-all url inputnull" disabled="disabled" #inputtarget value="{{Url}} ">
+                <!-- <button class="text user-select-all url" #inputtargets value="{{Url}}" >{{Url}}</button> -->
+              </div>
+              <div class="copy-button-wrapper buttonset">
+                <button (click)="copy(inputtarget)" type="button" class="btn btn-primary btn-sm buttonchng">Copy link</button>
+                <!-- <button class="ui-button ui-button--secondary-color copy-link-text-button" (click)="copy(inputTarget.value)" [ngxclipboard]="inputTarget">Copy link</button> -->
+              </div>
+            </div>
+            <div class="room-control-buttons control-button-group jstest-room-controls">
+              <div ng-click="handleRoomModeButtonClick()" class="top-bar-button select-room-mode-button" title="Set room size">
+                <img class="icon" src="https://d1x2efl61akomv.cloudfront.net/images/room-mode-small.6da5a2b7.svg">
+                <span class="desc">
+                  <span>Room size</span>
+                </span>
+              </div>
+
+              <div data-toggle="modal" data-target="#mic" class="top-bar-button jstest-cam-mic" title="Cam/Mic">
+                <img class="icon" src="https://d1x2efl61akomv.cloudfront.net/images/tools/toolbar-icons.40acd2f6.svg#toolbar-camera">
+                <span class="desc">
+                  <span>Cam/Mic</span>
+                </span>
+              </div>
+              <div class="top-bar-button black jstest-room-settings-button" permission="canAccessRoomSettings" ng-click="openRoomSettings()" title="Room settings" style="display: none;">
+                <img class="icon" src="https://d1x2efl61akomv.cloudfront.net/images/tools/toolbar-icons.40acd2f6.svg#toolbar-settings">
+                <p class="desc">Settings</p>
+              </div>
+            </div>
+            <div class="user-control-buttons control-button-group jstest-top-bar-authentication-buttons-claimed">
+              <div class="flex-button-wrapper"></div>
+            </div>
+
+            <div ng-if="User.isLoggedIn" class="control-button-group">
+              <div class="top-bar-button topbar-user-button jstest-topbar-avatar user-module size-small" ng-click="handleUserIconClick()" context-menu="true" show-display-name="false" show-avatar="User.isLoggedIn" show-login="!User.isLoggedIn" size="small">
+                <div class="user-object  signed-in">
+                  <figure class="profile-pic-wrapper" ng-if="showAvatar">
+                    <img  class="profile-pic" alt="{{name}}" height="50" width="50" src="{{pics}}">
+
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="container">
+          <div class="col-sm-6" style="top: 30%">
+            <video  class="right" id='localvideo' #localvideo playsinline="playsinline" autoplay="autoplay"></video>
+          </div>
+          <div  class="col-sm-6" style="top: 30%">
+            <video class="right "  id='remotevideo' #remotevideo playsinline="playsinline" autoplay="autoplay"></video>        
+          </div>
+          <div class="buttonlayout">
+            <div class="VideoToolbar-container">
+              <div class="VideoToolbar-itemGroup">
+                <button class="VideoToolbar-item--screenshare jstest-screenshare-button VideoToolbar-item splitscreen-not-draggable is-highlighted is-active">
+                  <img (click)="Screenshare()" class="VideoToolbar-itemIcon" src="assets/sharescreen.png">
+                  <div class="VideoToolbar-itemText">
+                    Share screen
+                  </div>
+                </button>
+                <button (click)='startRecording()' class="VideoToolbar-item--recording jstest-recording-button VideoToolbar-item splitscreen-not-draggable is-highlighted is-active" >
+                  <img class="VideoToolbar-itemIcon" src="assets/Record-icon.png">
+                  <div class="VideoToolbar-itemText">
+                    Record
+                  </div>
+                </button>
+                <button (click)='muteaudio()' class="VideoToolbar-item--mic jstest-toggle-audio-button VideoToolbar-item splitscreen-not-draggable">
+                  <img id='mic'  class="VideoToolbar-itemIcon" src="{{mic}}">
+                  <div class="VideoToolbar-itemText">
+                   {{mictext}}
+                  </div>
+                </button>
+
+                <button [disabled]="Camon == 'disable'" class="VideoToolbar-item--cam jstest-toggle-video-button VideoToolbar-item splitscreen-not-draggable  is-active">
+                  <img class="VideoToolbar-itemIcon" src="assets/cam.png">
+                  <div class="VideoToolbar-itemText">
+                    Cam on
+                  </div>
+                </button>
+
+                <button  (click) = 'openchat()' class="VideoToolbar-item--cam jstest-open-chat-button VideoToolbar-item splitscreen-not-draggable is-highlighted is-active">
+                  <img class="VideoToolbar-itemIcon" src="assets/icon_chat.jpg">
+                  <div class="VideoToolbar-itemText">
+                    Open chat <b *ngIf = '!chatcount'>({{usersdata.length}})</b>
+                  </div>
+                </button>
+
+                <button (click) ='FeedBack()' class="VideoToolbar-item--leaveRoom jstest-leave-room VideoToolbar-item splitscreen-not-draggable">
+                  <img class="VideoToolbar-itemIcon" src="assets/leave.png">
+
+                  <div class="VideoToolbar-itemText">
+                    Leave
+                  </div>
+                </button>
+                <!-- <button class="VideoToolbar-item--leaveRoom jstest-leave-room VideoToolbar-item splitscreen-not-draggable" #callbutton (click)="call()">
+                  <img class="VideoToolbar-itemIcon" src="assets/call.png">
+
+                  <div class="VideoToolbar-itemText">
+                    call
+                  </div>
+                </button> -->
+                <button  *ngIf='!Record'  (click)='Display()'  id="pop" class="VideoToolbar-item--recording jstest-recording-button VideoToolbar-item splitscreen-not-draggable is-highlighted is-active" >
+                    <img class="VideoToolbar-itemIcon" src="assets/show.jpg">
+                    <div class="VideoToolbar-itemText">
+                      show
+                    </div>
+                  </button>
+                  <!-- <button   *ngIf='!Record' (click)='stopRecording()'   class="VideoToolbar-item--recording jstest-recording-button VideoToolbar-item splitscreen-not-draggable is-highlighted is-active" >
+                      <img class="VideoToolbar-itemIcon" src="assets/stop.png">
+                      <div class="VideoToolbar-itemText">
+                        stop
+                      </div>
+                    </button> -->
+              </div>
+            </div>
+            <!-- <audio id="player" controls="controls"></audio> -->
+            <!-- <button #startbutton (click)="start()">Start</button> -->
+
+            <!-- <button #hangupbutton (click)="hangup()">Hang Up</button> <button class="VideoToolbar-item--screenshare jstest-screenshare-button VideoToolbar-item splitscreen-not-draggable is-highlighted is-active" #callbutton (click)="call()">-->
+          </div>
+        <!-- <button id="Record">Share</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <nav class="navbar"> <div class="container-fluid"> <div class="navbar-header"> <img [routerlink]="['/']" class="navbar-brand setup" src="data:image/png;base64,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" alt="WhereBy"> <h5 class="bottoms">FREE </h5> </div> <div> <input type="text" class="borderrm" #inputtarget="#inputTarget" value="{{Url}} "> <button (click)="copy(inputTarget.value)" [ngxclipboard]="inputTarget" type="button" class="btn btn-primary btn-sm buttonchng">Copy</button> </div> <div></div> <div *ngif="userImage" class="navbar-header rights"> <img class="navbar-brand crcl " src="{{pic}}" alt="WhereBy"> </div> </div> </nav> <div class="container"> <div class="col-sm-6"> <video class="right" #localvideo="#localVideo" playsinline="playsinline" autoplay="autoplay" muted="muted"></video> </div> <div class="col-sm-6"> <video class="right" #remotevideo="#remoteVideo" playsinline="playsinline" autoplay="autoplay"></video> </div> </div> <div> <button #startbutton="#startButton" (click)="start()">Start</button> <button #callbutton="#callButton" (click)="call()">Call</button> <button #hangupbutton="#hangupButton" (click)="hangup()">Hang Up</button> <button id="Record">Share</button> </div> <video #video="#video" autoplay="autoplay" style="width:360px;"></video> -->
+<!-- <video #video class="video"></video> -->
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<aside (keydown)="keyDownFunction($event, submit_message.value)"  id="sidebar_secondary" class="tabbed_sidebar chat_sidebar">
+
+  <div class="popup-head">
+    <div class="popup-head-left pull-left"></div>
+    <div class="popup-head-right pull-right">
+      <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button" (click)= 'closechat()'>
+        <i class="glyphicon glyphicon-remove"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="chat" class="chat_box_wrapper chat_box_small chat_box_active" style="opacity: 1; display: block; transform: translateX(0px);">
+    <div class="chat_box touchscroll chat_box_colors_a"  *ngFor="let user of usersdata">
+      <div class="chat_message_wrapper" *ngIf = 'name != user.username'>
+        <div class="chat_user_avatar">
+            <img alt="Gurdeep Osahan (Web Designer)" title="Gurdeep Osahan (Web Designer)" src="{{user.pic}}" class="md-user-image">
+        </div>
+        <ul class="chat_message" >
+          <li>
+            <p >
+           {{user.message}}
+           <span class="chat_message_time">{{user.time | date: 'shortTime'  }}</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="chat_message_wrapper chat_message_right"  *ngIf = 'name == user.username'>
+        <div class="chat_user_avatar">
+            <img alt="Gurdeep Osahan (Web Designer)" title="Gurdeep Osahan (Web Designer)" src="{{user.pic}}" class="md-user-image">
+        </div>
+        <ul class="chat_message" >
+          <li>
+            <p>
+              {{user.message}}
+              <span class="chat_message_time">{{user.time | date: 'shortTime'  }}</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat_submit_box">
+    <div class="uk-input-group">
+      <div class="gurdeep-chat-box">
+        <!-- <span style="vertical-align: sub;" class="uk-input-group-addon">
+          <a href="#">
+            <i class="fa fa-smile-o"></i>
+          </a>
+        </span> -->
+        <input style="border: 0;" type="text" placeholder="Type a message" #submit_message  autocomplete="off" class="md-input empty" >
+        <span style="vertical-align: sub;" class="uk-input-group-addon">
+        </span>
+      </div>
+    </div>
+  </div>
+
+ 
+
+

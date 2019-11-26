@@ -1,0 +1,213 @@
+<div class="app">
+  <div class="l-container">
+    <section *ngIf="!viewroom" class="jstest-roomgenerator component--So0Jj">
+      <div class="jstest-roomgenerator-default">
+        <h3 class="title--16F1w jstest-title font">Create your personal meeting room to get started</h3>
+        <form class="jstest-roomgenerator-default-form form--2vZKa">
+          <label class="jstest-roominput-default-label label--1Ih9d">
+            <div class="labelText--HUfdq fn">Room name</div>
+            <div class="inputElement--2Q3AL">
+              <span class="fn">whereby.com/</span><input class="fn jstest-roominput-input" type="text" #room placeholder="company, project or other name" (blur)="GetValue(Room.value)"></div>
+            <small class="helpText--3WMGx fn">This is your personal link for meetings so make sure you like it</small>
+          </label>
+          <div class="submit--32Ks7">
+            <button type="button" class="component--2WwH7 jstest-urlbar-button button--ZcKeI" [disabled]="DisableButton" (click)="GetRoomName(Room.value)">Create My Room</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <div *ngIf="viewroom">
+      <div class="l-container-sm">
+        <div class="l-grid singleColumnRoomList--RWHJ1 column--oyJ1V">
+          <div class="jstest-your-rooms roomListContainer--2bU-e">
+            <div class="component--1_UB8">
+              <div class="title--3XovO">Your rooms</div>
+              <ul class="list--1_4Kc">
+                <li class="item--6AdM9 item--link--gc7ng">
+                  <a (click)="MeetingRoom()" class="itemContent--3L4z-">
+                    <figure class="iconFigure--2tmKh"><img class="icon--3Ef9A" src="https://d32wid4gq0d4kh.cloudfront.net/6b3feb77f6cd1d4edcc03d77ee46d63f.svg"></figure>
+                    <div class="contentWrapper--1y9tE">
+                      <p>{{Room}}</p>
+                    </div>
+                  </a>
+                  <button class="iconFigure--3ZTh1 iconRemove--2mW7L jstest-remove-button" data-toggle="modal" data-target="#myModal"><img src="https://d32wid4gq0d4kh.cloudfront.net/f39536c789dadc7a3c3724f3f4504679.svg"></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="restrictedFreeHelpText--lhlQ7 italalictext">
+          <a class="js-test-upgrade-to-pro alink" href="/user/order/details">Upgrade to Pro plan
+          </a>to own more rooms.</div>
+        <div class="content--1T4qh mbm jstest-create-or-enter-room-container">
+          <button class="component--2WwH7 jstest-create-or-enter-room-button" data-toggle="modal" data-target="#myModalupgrade">Create a room</button>
+        </div>
+      </div>
+      <div class="container--3Co4D l-container-sm"></div>
+      <div class="choosePlan--Hk8uq">
+        <div class="choosePlanHeader--3_Wy2">
+          <h3 class="choosePlanTitle--5bIsU">Need More?</h3>
+          <div class="choosePlanHelp--Ro-nI">Questions? Check out our
+            <a class="choosePlanHelpLink--hUfQ0" href="https://appearin.helpscoutdocs.com/" target="_blank">Knowledge Base</a>.</div>
+        </div>
+        <div class="component--3ieOI">
+          <div class="grid--1eske">
+            <div class="gridItem--9EqBo">
+              <div class="component--1ShOe jstest-choose-plan-business plan--3OXNg">
+                <div class="planContainer--2ag0y planContainer--blue--19iaA">
+                  <div>
+                    <h1 class="title--5aZS8">Business</h1>
+                  </div>
+                  <div>
+                    <p class="amount--2xdBb">from
+                      <span class="price--30dpu">$83.33</span>/mo</p>
+                    <p>billed annually (Save 17%)</p>
+                  </div>
+                  <div>
+                    <a class="button--3GM3c button--blue--Ir-q0 jstest-plan-link component--button--PUiR2 component--full--25rGM" [routerLink]="['/org/signup']">Upgrade Me</a>
+                    <button (click)='showFeture()' class="seeFeatures--21edE seeFeatures--blue--3_HHV">See plan features</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gridItem--9EqBo">
+              <div class="component--1ShOe jstest-choose-plan-pro plan--3OXNg component--selected--1az1Q">
+                <div class="planTitle--34zHL planTitle--pink--1Ymxi">Most Popular</div>
+                <div class="planContainer--2ag0y planContainer--pink--1xo1l">
+                  <div>
+                    <h1 class="title--5aZS8">Pro</h1>
+                  </div>
+                  <div>
+                    <p class="amount--2xdBb">from
+                      <span class="price--30dpu">$8.33</span>/mo</p>
+                    <p>billed annually (Save 17%)</p>
+                  </div>
+                  <div>
+                    <a class="button--3GM3c button--pink--27Uvb jstest-plan-link component--button--PUiR2 component--full--25rGM" [routerLink]="['/order/detail']" >Upgrade Me</a>
+                    <button  (click)='showFeture()' class="seeFeatures--21edE seeFeatures--pink--3f7km">See plan features</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gridItem--9EqBo">
+              <div class="component--1ShOe jstest-choose-plan-free plan--3OXNg">
+                <div class="planContainer--2ag0y planContainer--green--w2E_t">
+                  <div>
+                    <h1 class="title--5aZS8">Free</h1>
+                  </div>
+                  <div>
+                    <p class="amount--2xdBb">Forever Free</p>
+                  </div>
+                  <div>
+                    <span class="button--3GM3c jstest-plan-link component--button--PUiR2 component--full--25rGM component--disabled--3erao">Current Plan</span>
+                    <button  (click)='showFeture()' class="seeFeatures--21edE seeFeatures--green--1siWu">See plan features</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="component--3ieOI" *ngIf= 'FeaturePlan'>
+          <div class="grid--1eske">
+            <div class="planInfo--1gx6A planInfo--noBorder--dP4b9">
+              <h2 class="planInfoTitle--RvdGF">Multiple users</h2>
+              <p class="planInfoDescription--1EU1j">25+ video meeting rooms</p>
+              <ul class="planInfoList--c7oIi">
+                <li class="planInfoItem--2VPoW">
+                  <strong>Everything in Pro and...</strong>
+                  <div>Personal and team rooms</div>
+                </li>
+                <li class="planInfoItem--2VPoW">Custom domain
+                  <div>
+                    <small>(companyname.whereby.com)</small>
+                  </div>
+                </li>
+                <li class="planInfoItem--2VPoW">User management</li>
+                <li class="planInfoItem--2VPoW">Recording</li>
+                <li class="planInfoItem--2VPoW">Calendar integration</li>
+                <li class="planInfoItem--2VPoW">Priority support</li>
+              </ul>
+            </div>
+            <div class="planInfo--1gx6A">
+              <h2 class="planInfoTitle--RvdGF">1 User</h2>
+              <p class="planInfoDescription--1EU1j">3 video meeting rooms</p>
+              <ul class="planInfoList--c7oIi">
+                <li class="planInfoItem--2VPoW">
+                  <strong>Everything in Free and...</strong>
+                  <div>12 participants per meeting</div>
+                </li>
+                <li class="planInfoItem--2VPoW">Branded rooms</li>
+                <li class="planInfoItem--2VPoW">Recording
+                  <div>
+                    <small>($5/mo add-on)</small>
+                  </div>
+                </li>
+                <li class="planInfoItem--2VPoW">Premium support</li>
+              </ul>
+            </div>
+            <div class="planInfo--1gx6A">
+              <h2 class="planInfoTitle--RvdGF">1 User</h2>
+              <p class="planInfoDescription--1EU1j">1 video meeting room</p>
+              <ul class="planInfoList--c7oIi">
+                <li class="planInfoItem--2VPoW">4 participants per meeting</li>
+                <li class="planInfoItem--2VPoW">Custom URL
+                  <div>
+                    <small>(whereby.com/yourname)</small>
+                  </div>
+                </li>
+                <li class="planInfoItem--2VPoW">Lock room</li>
+                <li class="planInfoItem--2VPoW">Screen sharing</li>
+                <li class="planInfoItem--2VPoW">SSL secure video chat</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<app-footer></app-footer>
+<!-- <div class="cont" *ngif="!viewroom"> <h3> Create your personal meeting room to get started </h3> <div class=""> <h5> <b class="rightmg"> Room Name</b> </h5> <input type="text" class="form-control room" placeholder="WhereBy.com/company, project or other name" aria-label="Username" aria-describedby="basic-addon1"> <h5>This is your personal link for meetings so make sure you like it</h5> </div> <a class="btn btn-primary btn-lg radius" role="button" aria-pressed="true" (click)="GetRoomName(Room.value)"> Create My Room</a> </div> <div class="cont" *ngif="viewroom"> <div class=""> <h3> <b class="rightmg"> Your room</b> </h3> <p class="rightmg" style="float: right;"></p> <img src="https://d32wid4gq0d4kh.cloudfront.net/6b3feb77f6cd1d4edcc03d77ee46d63f.svg"> <b (click)="MeetingRoom()">{{Room}}</b> <img class="imgrt" src="https://d32wid4gq0d4kh.cloudfront.net/f39536c789dadc7a3c3724f3f4504679.svg" data-toggle="modal" data-target="#myModal"> </div> <a class="btn btn-primary btn-lg radiusroom" role="button" aria-pressed="true" data-toggle="modal" data-target="#myModalupgrade"> Create Room</a> </div> -->
+<div class="modal" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sure you want to delete this room?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Deleting
+          <b>/{{Room}}</b>
+          makes it available for others to own. Any members will be removed.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-default radius" data-dismiss="modal">No,not now</button>
+        <button type="button" class="btn btn-primary btn-lg radiusroom" data-dismiss="modal" (click)="deleteRoom(Room)">Yes, Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="myModalupgrade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Your current plan gives you 1 room</h4>
+      </div>
+      <div class="modal-body">
+        <p>To create a new room, either upgrade to a Pro plan for 3 video meeting rooms or replace the one you already own by deleting it first.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-default radius" data-dismiss="modal">Upgrade me</button>
+        <button type="button" class="btn btn-primary btn-lg  radiusroom" data-dismiss="modal">Not now</button>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner bdopacity="0" bdcolor="#1d5eb2" size="large" color="#eeeeee" type="ball-clip-rotate-pulse">
+  <p style="color: white; bottom: 20%">
+    You're about to join meeting</p>
+</ngx-spinner>
+<!-- <app-footer></app-footer> -->

@@ -1,0 +1,42 @@
+<div class="app" id="app">
+  <div class="ContentWrapper--11Iee">
+    <div class="l-container">
+      <div class="cont" *ngIf = 'currentowner != null' >
+        <h3>
+          The room /{{Roomname}}
+          does not exist. Are you sure you’ve entered the correct URL?
+        </h3>
+        <div class="">
+          Create a new room called /{{Roomname}}?
+          <a style="color: #ff2e63" [routerLink]="['/meeting']">Go to your dashboard</a>
+          <br>
+          to create a new room.
+        </div>
+    </div>
+        <div class="" *ngIf = 'currentowner == null'>
+          <div class="component--jcwXz">
+            <p class="errorMessage--dcgWL">The room
+              <strong>/{{Roomname}}</strong>
+              does not exist. Are you sure you’ve entered the correct URL?</p>
+            <div>
+              <p>
+                <strong>Have an account?</strong><br>
+                <a [routerLink]="['/user/login']" >Log In</a>
+                to create this room from your dashboard.</p>
+              <p>
+                <strong>New user?</strong><br>
+                <a [routerLink]="['/user/signup']" >Sign Up for free</a>
+                to create your own room.</p>
+            </div>
+            <p>
+              <small>
+                <a href="https://appearin.helpscoutdocs.com/article/249-room-doesnt-exist">More information</a>
+                about this.</small>
+            </p>
+          </div>
+        </div>
+   
+    </div>
+  </div>
+
+  <app-footer></app-footer>

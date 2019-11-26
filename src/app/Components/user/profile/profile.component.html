@@ -1,0 +1,51 @@
+<!-- <nav class="navbar"> <div class="container-fluid"> <div class="navbar-header" > <img [routerLink]="['/']" class="navbar-brand" src="https://d32wid4gq0d4kh.cloudfront.net/ff0baf699ecfdf651e1df79ab837e3ee.svg" alt="WhereBy"> </div> <div *ngIf="userImage" class="navbar-header right"> <h4>{{name}}</h4> <img [routerLink]="['/information/contact-us-appearin-business']" class="navbar-brand crcl " src="{{pic}}" alt="WhereBy"> </div> <ul *ngIf="!userImage" class="nav navbar-nav "> <li><a >Pricing</a></li> <li><a >Contact</a></li> <li><a >sale</a></li> <li><a >Support</a></li> <li><a [routerLink]="['/user/login']">login</a></li> <li><a [routerLink]="['/user/signup']">Get started</a></li> </ul> </div> </nav> -->
+
+<div class="l-container">
+  <header class="jstest-headerNav component--2QFO_">
+    <a class="logo--1d42y component--MsadA">
+      <figure class="logoContainer--AZi3B">
+        <a class="googleset jstest-userInfoLink navItem--SFDxq component--G0Pp0 user--1xSYC">
+          <p [routerLink]="['/profile']" class="displayName--3C2DK displayNameSelected--25HtB">{{name}}</p>
+          <figure class="component--2MszE component--small--20flS"><img class="avatarImage--3FFCn" src="{{pic}}" alt="">
+          </figure>
+        </a>
+        <!-- <div *ngIf="userImage"> <p class="displayName--3C2DK displayNameSelected--25HtB">chirag pawar</p> <img [routerLink]="['/']" class="navbar-brand crcl " src="{{pic}}" alt="WhereBy"> </div> -->
+        <img [routerLink]="['/']" class="logoImg--ck59d logoImg--text--1eqDD jstest-logo" src="https://d32wid4gq0d4kh.cloudfront.net/ff0baf699ecfdf651e1df79ab837e3ee.svg" alt="whereby.com">
+        <img [routerLink]="['/']" class="logoImg--ck59d logoImg--compact--3xT3M jstest-logo" src="https://d32wid4gq0d4kh.cloudfront.net/61b96327b4572962552c1c379e52db96.svg" alt="whereby.com">
+      </figure>
+    </a>
+  </header>
+</div>
+
+<div class="app" id="app">
+  <div class="ContentWrapper--11Iee">
+    <div class="l-container">
+      <div>
+        <div class="content--3xGpT">
+          <nav class="nav--1iVZQ">
+            <ul class="navList--BrtpX hiddenOnMobile--2wSKZ nav">
+              <li class="navListItem--TN04R">
+                <a class="link--3b92h lblnav" [routerLink]="['account']" (click) = 'selectedItem(0)'>Account</a>
+              </li>
+              <li class="navListItem--TN04R">
+                <a class="link--3b92h lblnav" [routerLink]="['subscription']" (click) = 'selectedItem(1)' >Subscription</a>
+              </li>
+              <li class="navListItem--TN04R">
+                <a class="link--3b92h lblnav" [routerLink]="['privacy']" (click) = 'selectedItem(2)' >Privacy</a>
+              </li>
+              <li class="navListItem--TN04R">
+                <a class="link--3b92h jstest-sign-out lblnav" (click)='Logout()'>Log Out</a>
+              </li>
+            </ul>
+          </nav>
+          <main class="mainContent--2-IhR">
+              <router-outlet></router-outlet>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+

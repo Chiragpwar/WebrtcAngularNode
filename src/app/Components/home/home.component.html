@@ -1,0 +1,36 @@
+<!-- <nav class="navbar"> <div class="container-fluid"> <div class="navbar-header" > <img [routerLink]="['/']" class="navbar-brand" src="https://d32wid4gq0d4kh.cloudfront.net/ff0baf699ecfdf651e1df79ab837e3ee.svg" alt="WhereBy"> </div> <div *ngIf="userImage" class="navbar-header right"> <h4>{{name}}</h4> <img [routerLink]="['/information/contact-us-appearin-business']" class="navbar-brand crcl " src="{{pic}}" alt="WhereBy"> </div> <ul *ngIf="!userImage" class="nav navbar-nav "> <li><a >Pricing</a></li> <li><a >Contact</a></li> <li><a >sale</a></li> <li><a >Support</a></li> <li><a [routerLink]="['/user/login']">login</a></li> <li><a [routerLink]="['/user/signup']">Get started</a></li> </ul> </div> </nav> -->
+
+<div class="l-container">
+  <header class="jstest-headerNav component--2QFO_">
+    <a class="logo--1d42y component--MsadA">
+      <figure class="logoContainer--AZi3B">
+        <a *ngIf="userImage" class="googleset jstest-userInfoLink navItem--SFDxq component--G0Pp0 user--1xSYC">
+          <p [routerLink]="['/profile/account']"  class="displayName--3C2DK displayNameSelected--25HtB">{{name}}</p>
+          <figure class="component--2MszE component--small--20flS"><img class="avatarImage--3FFCn" src="{{pic}}" alt="">
+          </figure>
+        </a>
+        <!-- <div *ngIf="userImage"> <p class="displayName--3C2DK displayNameSelected--25HtB">chirag pawar</p> <img [routerLink]="['/']" class="navbar-brand crcl " src="{{pic}}" alt="WhereBy"> </div> -->
+        <img [routerLink]="['/']" class="logoImg--ck59d logoImg--text--1eqDD jstest-logo" src="https://d32wid4gq0d4kh.cloudfront.net/ff0baf699ecfdf651e1df79ab837e3ee.svg" alt="whereby.com">
+        <img [routerLink]="['/']" class="logoImg--ck59d logoImg--compact--3xT3M jstest-logo" src="https://d32wid4gq0d4kh.cloudfront.net/61b96327b4572962552c1c379e52db96.svg" alt="whereby.com">
+      </figure>
+    </a>
+    <nav class="nav--1FwkX menu--3Jv0M jstest-nav" *ngIf="!userImage">
+      <ul class="navList--3xnXH navList--compact--1QbxE">
+        <li class="navItem--SFDxq" [routerLink]="['/information/pricing']">
+          <a class="navLink--1nG38">Pricing</a>
+        </li>
+        <li class="navItem--SFDxq" [routerLink]="['/information/contact-us-appearin-business']">
+          <a class="navLink--1nG38">Contact Sales</a>
+        </li>
+        <li class="navItem--SFDxq" [routerLink]="['/whereby-support']">
+          <a class="navLink--1nG38">Support</a>
+        </li>
+      </ul>
+    </nav>
+    <div *ngIf="!userImage" class="component--G0Pp0 user--1xSYC">
+      <a class="navItem--SFDxq navLink--1nG38 jstest-nav-login" title="Log In" [routerLink]="['/user/login']">Log In</a>
+      <a class="navItem--SFDxq signupButton--1Hn4r jstest-nav-signup component--button--PUiR2 component--small--3ua78" title="Get Started" [routerLink]="['/user/signup']">Get Started</a>
+    </div>
+  </header>
+</div>
+<router-outlet></router-outlet>

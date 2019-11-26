@@ -1,0 +1,106 @@
+<main class="mainContent--2-IhR">
+  <div class="wrapper--1eups menu">
+    <a aria-current="page" class="item--3_h3Z" (click)= 'selectedItem(0, "Policies")'>Policies</a>
+    <a class="item--3_h3Z" (click)= 'selectedItem(1, "Consents")'>Consents</a>
+    <a class="item--3_h3Z" (click)= 'selectedItem(2, "data")'>Your data</a>
+  </div>
+  <div *ngIf='Policies' class="">
+    <div>
+      <p>By using Whereby you agree to these
+        <a class="" href="https://whereby.com/information/tos/">Terms of Service</a>
+        and
+        <a class="" href="https://whereby.com/information/tos/privacy-policy/">Privacy Policy</a>
+        (collectively referred to as "Terms"). Please read them carefully to make sure you understand how you can use Whereby. If you don't agree to the Terms, you can't use Whereby and can delete your account
+        <a class="" href="/user/profile">here</a>. For information about how we use Cookies, see our
+        <a class="" href="https://whereby.com/information/tos/cookie-policy/">Cookie Policy</a>.</p>
+      <p>As of May 25th, 2018, Whereby is compliant with the European
+        <strong>General Data Protection Regulation (GDPR)</strong>.</p>
+      <p>
+        <a class="" href="https://support.whereby.com/category/186-privacy">Read more about privacy in our FAQ.</a>
+      </p>
+    </div>
+  </div>
+  <div *ngIf='Consents' class="">
+    <div>
+      <div class="consentItem--e30r1">
+        <button class="component--2WwH7 component--radio--31qRi">
+          <div class="content--2L1S4">Yes</div>
+          <div class="loader--3ke_k">
+            <div class="loader--i6TT-"></div>
+          </div>
+        </button>
+        <button class="component--2WwH7 component--radio--31qRi">
+          <div class="content--2L1S4">No</div>
+          <div class="loader--3ke_k">
+            <div class="loader--i6TT-"></div>
+          </div>
+        </button>
+        <div class="consentItemText--pCgQL">
+          <p>Keep me up-to-date with news about product improvements and new features in Whereby.</p>
+        </div>
+      </div>
+      <div class="consentItem--e30r1">
+        <button class="component--2WwH7 component--radio--31qRi">
+          <div class="content--2L1S4">Yes</div>
+          <div class="loader--3ke_k">
+            <div class="loader--i6TT-"></div>
+          </div>
+        </button>
+        <button class="component--2WwH7 component--radio--31qRi">
+          <div class="content--2L1S4">No</div>
+          <div class="loader--3ke_k">
+            <div class="loader--i6TT-"></div>
+          </div>
+        </button>
+        <div class="consentItemText--pCgQL">
+          <p>Help me get more out of Whereby by sending me tips based on how I use Whereby.</p>
+        </div>
+      </div>
+      <div class="consentItem--e30r1">
+        <button class="component--2WwH7 component--radio--31qRi">
+          <div class="content--2L1S4">Yes</div>
+          <div class="loader--3ke_k">
+            <div class="loader--i6TT-"></div>
+          </div>
+        </button>
+        <button class="component--2WwH7 component--radio--31qRi">
+          <div class="content--2L1S4">No</div>
+          <div class="loader--3ke_k">
+            <div class="loader--i6TT-"></div>
+          </div>
+        </button>
+        <div class="consentItemText--pCgQL">
+          <p>I want to contribute to improving Whereby by receiving user research surveys and invitations to participate in user research activities.</p>
+        </div>
+      </div>
+      <div class="consentItem--e30r1">
+        <button class="component--2WwH7 component--radio--31qRi">
+          <div class="content--2L1S4">Yes</div>
+          <div class="loader--3ke_k">
+            <div class="loader--i6TT-"></div>
+          </div>
+        </button>
+        <button class="component--2WwH7 component--radio--31qRi">
+          <div class="content--2L1S4">No</div>
+          <div class="loader--3ke_k">
+            <div class="loader--i6TT-"></div>
+          </div>
+        </button>
+        <div class="consentItemText--pCgQL">
+          <p>Inform me about special offers and news from Whereby in marketing channels outside Whereby.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div  *ngIf='data'>
+    <div>
+      <p>All of the data we collect is available for download</p>
+      <button type="button" class="component--2WwH7">
+        <div class="content--2L1S4">Download</div>
+        <div class="loader--3ke_k">
+          <div class="loader--i6TT-"></div>
+        </div>
+      </button>
+    </div>
+  </div>
+</main>

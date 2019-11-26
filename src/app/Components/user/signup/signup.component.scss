@@ -1,0 +1,925 @@
+
+/* BASIC */
+
+html {
+  background-color: #56baed;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+a {
+  color: #92badd;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px; 
+  color: #cccccc;
+}
+
+
+
+/* STRUCTURE */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+#formFooter {
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+/* TABS */
+
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #5fbae9;
+}
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button], input[type=submit], input[type=reset]  {
+  background-color: #56baed;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #39ace7;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+input[type=text] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input[type=text]:placeholder {
+  color: #cccccc;
+}
+
+
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+} 
+
+#icon {
+  width:60%;
+}
+
+
+.google-button {
+  height: 40px;
+  border-width: 0;
+  background: white;
+  color: #737373;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  padding: 0;
+  
+  &:focus,
+  &:hover {
+    box-shadow: 1px 4px 5px 1px rgba(0,0,0,0.1);
+  }
+  
+  &:active {
+    background-color: #e5e5e5;
+    box-shadow: none;
+    transition-duration: 10ms;
+  }
+}
+    
+.google-button__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+}
+
+.google-button__icon--plus {
+  width: 27px;
+}
+
+.google-button__text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Roboto',arial,sans-serif;
+}
+.login_page{
+  display: inline-block;
+  text-align: center;
+}
+.cont{
+  text-align: center
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/* Spacing scale */
+/* Private class to reset <button> element styles */
+/* http://stackoverflow.com/questions/11605875/how-to-style-button-inputs-to-be-identical-in-chrome-and-firefox */
+/* Recreates focus outline when child has focus */
+.phoneEmailToggle--EQ13D {
+  border: none;
+  background-color: transparent;
+  color: #ff2e63;
+  text-decoration: underline;
+  float: right;
+  padding: 0;
+}
+.infoText--KFapb {
+  text-align: center;
+  margin: 10px;
+  line-height: 24px;
+  font-size: 18px;
+}
+.submitButton--1VyxL {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: block;
+  width: 100%;
+}
+
+/* Spacing scale */
+/* Private class to reset <button> element styles */
+/* http://stackoverflow.com/questions/11605875/how-to-style-button-inputs-to-be-identical-in-chrome-and-firefox */
+/* Recreates focus outline when child has focus */
+.form--2VzxQ {
+  margin: 40px 0;
+}
+.form--2VzxQ label {
+  font-weight: 600;
+}
+@media (max-width: 1024px) {
+.heading--30d2Z {
+      margin: 0px
+}
+  }
+.subHeading--12h7b {
+  font-size: 18px;
+  color: #4a4a4a;
+  font-weight: 400;
+  line-height: 24px;
+}
+.formWrapper--NVTeq {
+  margin: auto;
+  max-width: 450px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Spacing scale */
+/* Private class to reset <button> element styles */
+/* http://stackoverflow.com/questions/11605875/how-to-style-button-inputs-to-be-identical-in-chrome-and-firefox */
+.component--2WwH7 {
+
+  display: inline-block;
+  position: relative;
+  border: 0;
+  border-radius: calc(40px / 2);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 100%;
+  padding: 8px 40px;
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+.component--2WwH7:disabled {
+      cursor: default;
+  }
+/* Recreates focus outline when child has focus */
+.component--2WwH7 {
+
+  background-color: #38cd8b;
+}
+/* Modifiers */
+.component--full--pSDtX {
+  display: block;
+  width: 100%;
+}
+.component--disabled--1IxX8 {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #666;
+  cursor: default;
+}
+.component--disabled--1IxX8:focus {
+      outline: none;
+  }
+.component--secondary--2q75W {
+  background-color: #fff;
+  color: #222;
+  -webkit-box-shadow: inset 0 0 0 1px #dadada;
+          box-shadow: inset 0 0 0 1px #dadada;
+}
+.component--secondary--2q75W.component--disabled--1IxX8 {
+      background-color: transparent;
+      color: #dadada;
+  }
+.component--tertiary--1r8K1 {
+  background-color: #f5f5f5;
+  color: #222;
+}
+.component--tertiary--1r8K1.component--disabled--1IxX8 {
+      background-color: transparent;
+      color: #dadada;
+  }
+.component--border--36xKm {
+  -webkit-box-shadow: inset 0 0 0 1px #ff2e63;
+          box-shadow: inset 0 0 0 1px #ff2e63;
+}
+.component--link--18E0A {
+  background-color: transparent;
+  color: #ff2e63;
+  font-weight: 400;
+  border-radius: 0;
+  height: auto;
+  width: auto;
+  text-align: start;
+  padding: 0;
+}
+.component--link--18E0A:hover, .component--link--18E0A.component--hover--2VldM {
+      text-decoration: underline;
+  }
+.component--link--18E0A.component--disabled--1IxX8 {
+      background-color: transparent;
+      color: #aaa;
+  }
+.component--small--WrwWP {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+.component--inline--2pTo3 {
+  padding: 0;
+  line-height: inherit;
+  margin: 0;
+  border: none;
+}
+.component--radio--31qRi, .component--radio-selected--2wRGk {
+  --circle-size: 24px;
+  --circle-color: #222;
+  --circle-thickness: 1px;
+  --padding: 6px;
+
+  padding-left: calc(var(--padding) + var(--circle-size) + calc(2 * var(--circle-thickness) + calc(2 * var(--padding))));
+  position: relative;
+  background-color: transparent;
+  color: #222;
+}
+.component--radio--31qRi.component--disabled--1IxX8, .component--radio-selected--2wRGk.component--disabled--1IxX8 {
+      background-color: transparent;
+      color: #aaa;
+  }
+.component--radio-selected--2wRGk::after, .component--radio--31qRi::before, .component--radio-selected--2wRGk::before {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+}
+.component--radio--31qRi::before, .component--radio-selected--2wRGk::before {
+  height: var(--circle-size);
+  width: var(--circle-size);
+  border: var(--circle-thickness) solid var(--circle-color);
+  top: calc(50% - calc(calc(var(--circle-size) / 2) + var(--circle-thickness)));
+  left: var(--padding);
+}
+.component--radio-selected--2wRGk::after {
+  --inner-circle-size: calc(var(--circle-size) / 2);
+  height: var(--inner-circle-size);
+  width: var(--inner-circle-size);
+  background-color: var(--circle-color);
+  top: calc(50% - calc(var(--inner-circle-size) / 2));
+  left: calc(var(--padding) + calc(var(--inner-circle-size) / 2) + var(--circle-thickness));
+}
+.component--radio-selected--2wRGk {
+  pointer-events: none;
+}
+.component--icon--1fgD8 {
+  background-color: transparent;
+}
+.component--icon--1fgD8.component--disabled--1IxX8, .component--icon--1fgD8.component--disabled--1IxX8:hover {
+      background-color: transparent;
+      opacity: 0.4;
+  }
+.component--lightText--1emSd {
+  color: #fff;
+}
+
+/* Spacing scale */
+/* Private class to reset <button> element styles */
+/* http://stackoverflow.com/questions/11605875/how-to-style-button-inputs-to-be-identical-in-chrome-and-firefox */
+/* Recreates focus outline when child has focus */
+.component--2MyI5 {
+  cursor: text;
+  display: block;
+}
+.inputElement--1P2yy {
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #aaa;
+  -webkit-box-shadow: inset 0 0 0 1px transparent;
+          box-shadow: inset 0 0 0 1px transparent;
+  max-width: 100%;
+  min-width: 100px;
+  width: 100%;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 0 0 8px;
+
+  color: #222;
+  font-size: 16px;
+  height: 48px;
+  outline: none;
+}
+.inputElement--1P2yy::input-placeholder {
+      color: #aaa;
+      font-size: 16px;
+      font-weight: inherit;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+  }
+.inputElement--1P2yy::-webkit-input-placeholder {
+      color: #aaa;
+      font-size: 16px;
+      font-weight: inherit;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+  }
+.inputElement--1P2yy::-moz-placeholder {
+      color: #aaa;
+      font-size: 16px;
+      font-weight: inherit;
+      box-shadow: none;
+  }
+.inputElement--1P2yy:-ms-input-placeholder {
+      color: #aaa;
+      font-size: 16px;
+      font-weight: inherit;
+      box-shadow: none;
+  }
+.inputElement--1P2yy:hover, .inputElement--1P2yy:focus {
+      background-color: #fff;
+      border: 1px solid #38cd8b;
+      -webkit-box-shadow: inset 0 0 0 1px #38cd8b;
+              box-shadow: inset 0 0 0 1px #38cd8b;
+  }
+.inputElement--1P2yy.error--3TbNL {
+      border: 1px solid #e62929;
+      -webkit-box-shadow: inset 0 0 0 1px #38cd8b;
+              box-shadow: inset 0 0 0 1px #38cd8b;
+  }
+.inputElement--1P2yy.large--1XQk0 {
+      height: 44px;
+      padding: 12px (16px + 4) 10px;
+      font-size: 18px;
+  }
+.inputElement--1P2yy.large--1XQk0::input-placeholder {
+          font-size: 18px;
+      }
+.inputElement--1P2yy.large--1XQk0::-webkit-input-placeholder {
+          font-size: 18px;
+      }
+.inputElement--1P2yy.large--1XQk0::-moz-placeholder {
+          font-size: 18px;
+      }
+.inputElement--1P2yy.large--1XQk0:-ms-input-placeholder {
+          font-size: 18px;
+      }
+.inputElement--1P2yy:disabled, .inputElement--1P2yy:disabled:hover, .inputElement--1P2yy:disabled:focus, .inputElement--disabled--1hNAw, .inputElement--disabled--1hNAw:hover {
+      background-color: #f1f1f1;
+      border-color: #ddd;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+      color: #aaa;
+      cursor: not-allowed;
+  }
+.helpText--Yn0vL {
+  color: #707070;
+  font-size: .875em;
+  margin: 0;
+  line-height: 1.25em;
+  min-height: 1.25em;
+  font-weight: 400;
+  cursor: inherit;
+}
+.labelText--4i6G4 {
+  font-weight: 600;
+  font-size: 0.875rem;
+  -webkit-font-smoothing: antialiased;
+  cursor: inherit;
+  margin-bottom: 8px;
+}
+.component--block--2xWXF {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  max-width: 100%;
+}
+.component--regularWeight--3JqTU .labelText--4i6G4 {
+      font-weight: 400;
+  }
+
+/* Spacing scale */
+/* Private class to reset <button> element styles */
+/* http://stackoverflow.com/questions/11605875/how-to-style-button-inputs-to-be-identical-in-chrome-and-firefox */
+/* Recreates focus outline when child has focus */
+.component--3jhK5 {
+  background-color: #e9c628;
+  border-radius: 5px;
+  line-height: 26px;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+}
+.component--alert--3lBXh {
+  background-color: #e62929;
+  color: #fff;
+}
+
+/* Spacing scale */
+/* Private class to reset <button> element styles */
+/* http://stackoverflow.com/questions/11605875/how-to-style-button-inputs-to-be-identical-in-chrome-and-firefox */
+/* Recreates focus outline when child has focus */
+.numberWrapper--1cZXU {
+  margin-top: 8px;
+  width: 100%;
+  border-radius: 3px;
+  padding: 8px 2px 7px 11px;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+  height: 40px;
+  outline: none;
+
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.dropdown--1sWkQ {
+  position: relative;
+  height: 44px;
+  width: 55px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+  margin-right: 7px;
+  border: none;
+}
+.select--3xUaK {
+  opacity: 0;
+  width: 100%;
+  cursor: inherit;
+  display: block;
+  height: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 1em;
+}
+.input--39Nz3 {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  padding-left: 5px;
+  margin: auto;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+.callingCode--1wnEm {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45px;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.carrot--2nQBV {
+  position: absolute;
+  top: 20px;
+  right: -1px;
+  pointer-events: none;
+  width: 10px;
+}
+
+/* Spacing scale */
+/* Private class to reset <button> element styles */
+/* http://stackoverflow.com/questions/11605875/how-to-style-button-inputs-to-be-identical-in-chrome-and-firefox */
+/* Recreates focus outline when child has focus */
+.component--3jzCS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ssoDividerWrapper--SaJBw {
+  width: 100%;
+  height: 20px;
+  border-bottom: 1px solid #222;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+}
+.isHeaderDivider--jhGsH {
+  margin-bottom: 40px;
+}
+.isFooterDivider--1qVcF {
+  margin-top: 40px;
+}
+.ssoDividerContent--3reT8 {
+  background-color: #fff;
+  padding: 0 20px;
+  margin-top: 1em;
+}
+
+
+/* Spacing scale *//* Private class to reset <button> element styles *//* http://stackoverflow.com/questions/11605875/how-to-style-button-inputs-to-be-identical-in-chrome-and-firefox *//* Recreates focus outline when child has focus *//* https://developers.google.com/identity/branding-guidelines */
+.googleBtn--1jM_a {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background: #4285f4;
+  color: #fff;
+  width: 100%;
+  border-radius: 2px;
+  border: thin solid #4285f4;
+  -webkit-box-shadow: 1px 1px 1px #707070;
+          box-shadow: 1px 1px 1px #707070;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+}.googleBtn--1jM_a img {
+      background: #fff;
+      border-radius: 2px;
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      margin-right: 10px;
+  }.googleBtn--1jM_a[disabled] {
+  background-color: #aaa;
+  color: #fff;
+  border: thin solid #aaa;
+}
+
+/* Spacing scale */
+/* Private class to reset <button> element styles */
+/* http://stackoverflow.com/questions/11605875/how-to-style-button-inputs-to-be-identical-in-chrome-and-firefox */
+/* Recreates focus outline when child has focus */
+.ContentWrapperAuthFlow--1HnnM {
+  text-align: center;
+}
+.footerWrapper--xfTZu {
+  bottom: 0;
+  padding: 20px;
+  width: 100%;
+  position: static;
+}
+@media (min-width: 768px) {
+.footerWrapper--xfTZu {
+      padding: 40px
+}
+  }
+@media (min-height: 800px) {
+.footerWrapper--xfTZu {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%)
+}
+  }
+  .l-container {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.mvl { margin-top: 30px; margin-bottom: 30px; }
+
+.lbl{
+font-size: 11px;
+  margin-left: -321px;
+  font-weight: 900;
+  font: 16px/1.2 "Open Sans", sans-serif;
+}
+.fn {
+  font-size: 24px !important;
+}
+
+.descriptionText--11obc{
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 30px;
+  text-align: center;
+
+}
+
+.lblfont{
+  font: 16px/1.2 "Open Sans", sans-serif !important;
+}
+.right{
+  margin-right: 71%;
+}  
+
+.form--2VzxQ {
+  margin: 40px 0;
+}
+.form--2VzxQ label {
+  font-weight: 600;
+}
+
+.subHeading--12h7b {
+  font-size: 18px !important;
+  color: #4a4a4a !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+  text-transform: inherit !important;
+  font: 16px/1.2 "Open Sans", sans-serif;
+}
+
+.inputElement--1P2yys {
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #aaa;
+  -webkit-box-shadow: inset 0 0 0 1px transparent;
+          box-shadow: inset 0 0 0 1px transparent;
+  max-width: 100%;
+  min-width: 100px;
+  width: 100%;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 0 0 8px;
+
+  color: #222;
+  font-size: 16px;
+  height: 48px;
+  outline: none;
+}
+.inputElement--1P2yys:-ms-input-placeholder::-webkit-input-placeholder {
+  color: #aaa;
+  font-size: 53px;
+  font-weight: inherit;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.component--1WZyh input{
+  --code-font-size: 57px;
+  --box-count: 6;
+--width: calc(2ch * var(--box-count));
+letter-spacing: 0.5em;
+font-size: var(--code-font-size);
+font-family: monospace;
+font-weight: 400;
+height: calc(5em / 3);
+padding-left: 0.5em;
+padding-right: 0;
+margin-top: 12px;
+width: var(--width);
+}

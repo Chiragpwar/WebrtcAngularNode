@@ -1,0 +1,100 @@
+<section class="section--3BdWd">
+  <h2 class="title--3cQSD">Profile</h2>
+  <div class="component--2iDFJ">
+    <div>
+      <div *ngIf = 'Avatar'>
+        <div class="avatarWrapper--3TdHJ">
+          <label for="avatar-file-input" class="avatarWrapperLabel--8Fpxm">
+            <div class="avatarWithOverlay--2hDEd">
+              <figure class="component--2MszE squareAvatar--1NvKD"><img class="avatarImage--3FFCn" src="{{profileUrl}}" alt=""></figure><img src="https://d32wid4gq0d4kh.cloudfront.net/88e2034daa77da359456ffd00b6b7a33.svg" class="avatarOverlay--3r-UM"></div>
+          </label>
+        </div>
+        <div class="submitButtonGroup--3s-MK">
+          <label  for="avatar-file-input" class="InputFile--dmuio">
+            <button   tabindex="-1" class="component--2WwH7 button--3ydsU component--small--WrwWP">
+              <div class="content--2L1S4">Edit</div>
+              <div class="loader--3ke_k">
+                <div class="loader--i6TT-"></div>
+              </div>
+            </button><input id="avatar-file-input" accept="image/*" class="input--3J-F1" type="file"  (change)="handleInputChange($event)" ></label>
+          <button class="component--2WwH7 component--small--WrwWP component--tertiary--1r8K1">
+            <div class="content--2L1S4">Reset</div>
+            <div class="loader--3ke_k">
+              <div class="loader--i6TT-"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf = '!Avatar'>
+        <div class="avatarWrapper--3TdHJ">
+          <label for="avatar-file-input" class="avatarWrapperLabel--8Fpxm">
+            <div class="avatarWithOverlay--2hDEd">
+              <figure class="component--2MszE squareAvatar--1NvKD"><img class="avatarImage--3FFCn" src="{{imageSrc}}" alt=""></figure><img src="https://d32wid4gq0d4kh.cloudfront.net/88e2034daa77da359456ffd00b6b7a33.svg" class="avatarOverlay--3r-UM"></div>
+          </label>
+        </div>
+        <div class="submitButtonGroup--3s-MK">
+          <label (click) ='boxon("save")' for="avatar-file-input" class="InputFile--dmuio">
+            <button  tabindex="-1" class="component--2WwH7 button--3ydsU component--small--WrwWP">
+              <div class="content--2L1S4">save</div>
+              <div class="loader--3ke_k">
+                <div class="loader--i6TT-"></div>
+              </div>
+            </button></label>
+          <button (click) = 'Revert()' class="component--2WwH7 component--small--WrwWP component--tertiary--1r8K1">
+            <div class="content--2L1S4">cancle</div>
+            <div class="loader--3ke_k">
+              <div class="loader--i6TT-"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form class="inputField--1I1GO">
+        <label class="component--2MyI5 jstest-input-wrapper">
+          <div class="labelText--4i6G4 lbl">Name</div>
+          <input id="Inputname" #Inputname name="Name-label" type="text" class="lbl inputElement--1P2yy" value="{{name}}" (keyup)="Displaybox(Inputname.value)" autocomplete="off">
+          <small class="helpText--Yn0vL"></small>
+        </label>
+        <div *ngIf='inputBox' class="submitButtonGroup--37RC2">
+          <button  type="button" class="component--2WwH7 component--secondary--2q75W" (click)= 'boxon("cancle")'>
+            <div class="content--2L1S4">Cancel</div>
+            <div class="loader--3ke_k">
+              <div class="loader--i6TT-"></div>
+            </div>
+          </button>
+          <button id="save" type="button" class="component--2WwH7" (click)= 'boxon("save")'>
+            <div class="content--2L1S4">Save</div>
+            <div class="loader--3ke_k">
+              <div class="loader--i6TT-"></div>
+            </div>
+          </button>
+        </div>
+      </form>
+      <div>
+        <form class="inputField--1I1GO">
+          <label class="component--2MyI5 jstest-input-wrapper">
+            <div class="labelText--4i6G4 lbl">Email</div><input name="Email-label" type="email" class="lbl inputElement--1P2yy" value="{{Email}}">
+            <small class="helpText--Yn0vL"></small>
+          </label>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<section *ngIf='!Deletebox' class="showMoreSection--35d4e">
+  <button class="component--2WwH7 component--link--18E0A" (click)='DeleteAccount()'>
+    <div class="content--2L1S4">Show more settings</div>
+  </button>
+</section>
+<section *ngIf='Deletebox' class="section--3BdWd">
+  <h2 class="title--3cQSD">Delete account</h2>
+  <p class="lbl">By deleting your account, you will be losing your account data and personal rooms. Once you delete your account, this information cannot be recovered.</p>
+  <button class="component--2WwH7 component--link--18E0A">
+    <div class="content--2L1S4">Delete your account</div>
+    <div class="loader--3ke_k">
+      <div class="loader--i6TT-"></div>
+    </div>
+  </button>
+</section>

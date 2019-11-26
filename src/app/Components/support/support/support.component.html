@@ -1,0 +1,112 @@
+
+
+
+    <title>Whereby Support Center</title>
+    <link rel="stylesheet" href="//d3eto7onm69fcz.cloudfront.net/assets/stylesheets/launch-1559120810432.css">
+    <link rel="stylesheet" href="//s3.amazonaws.com/helpscout.net/docs/assets/5769525d9033601c8a8ec820/attachments/5d43382b2c7d3a2ec4bfbef2/helpscout.css">
+    <link rel="apple-touch-icon-precomposed" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5769525d9033601c8a8ec820/images/5d3a18002c7d3a2ec4bf6e5c/whereby-vertical.png">
+    <link rel="shortcut icon" type="image/png" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5769525d9033601c8a8ec820/images/5d3a18000428634786756f4d/whereby-vertical.png">
+    <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/api2/v1566858990656/recaptcha__en.js"></script>
+
+    <header id="mainNav" class="navbar">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" [routerLink]="['/']" >
+            <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5769525d9033601c8a8ec820/images/5d3af8812c7d3a2ec4bf7603/whereby-white.png" alt="Whereby Support Center" width="269" height="75">
+          </a>
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse">
+            <nav role="navigation">
+              <ul class="nav">
+                <li id="home"  (click)= 'selectedItem(0)'>
+                  <a [routerLink]="['home']" >Home
+                    <b class="caret"></b>
+                  </a>
+                </li>
+                <li id="support-center" (click)= 'selectedItem(1)'>
+                  <a [routerLink]="['support-center']" >Support Center
+                    <b class="caret"></b>
+                  </a>
+                </li>
+                <li id="appearin-is-now-whereby"  (click)= 'selectedItem(2)'>
+                  <a [routerLink]="['support-appearin']" >appear.in is now Whereby
+                    <b class="caret"></b>
+                  </a>
+                </li>
+                <li id="contact" >
+                  <a data-toggle="modal"  data-target="#myModal">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Contact us</h4>
+                </div>
+                <div class="modal-body">
+                        <form data-parsley-validate="" novalidate="" method="post" action="/contact" enctype="multipart/form-data" class="form-horizontal contact">
+                            <div class="control-group">
+                                <label for="md-name" class="control-label">Name</label>
+                                <div class="controls">
+                                    <input type="text" name="name" id="md-name" placeholder="(optional)">
+                                </div>
+                                <!--/controls-->
+                            </div>
+                            <!--/control-group-->
+                            <div class="control-group">
+                                <label for="md-email" class="control-label">Email</label>
+                                <div class="controls">
+                                    <input type="email" name="email" id="md-email" data-parsley-required="true" data-parsley-type="email" data-parsley-notblank="true" data-parsley-trigger="change" data-parsley-required-message="Email is required">
+                                </div>
+                                <!--/controls-->
+                            </div>
+                            <!--/control-group-->
+                            <div class="control-group">
+                                <label for="md-subject" class="control-label">Subject</label>
+                                <div class="controls">
+                                    <input type="text" name="subject" id="md-subject" data-parsley-required="true" data-parsley-notblank="true" data-parsley-required-message="Subject is required">
+                                </div>
+                                <!--/controls-->
+                            </div>
+                            <!--/control-group-->
+                            <div class="control-group">
+                                <label for="md-message" class="control-label">Message</label>
+                                <div class="controls">
+                                    <textarea name="message" id="md-message" data-parsley-required="true" data-parsley-notblank="true" data-parsley-required-message="Message is required"></textarea>
+                                </div>
+                                <!--/controls-->
+                            </div>
+                            <!-- /control-group -->
+                            <div class="control-group">
+                                <label for="file-upload" class="control-label">Upload file</label>
+                                <div class="controls">
+                                    <input id="file-upload" type="file" name="upload" data-parsley-max-file-size="10">
+                                </div>
+                            </div>
+                            <!--/control-group-->
+                            <div class="form-actions">
+                                
+                                <input type="submit" class="btn" value="Send">
+                            </div>
+                            <!--/form-actions-->
+                        </form>
+                    </div>
+              </div>
+              
+            </div>
+          </div>
+          
+<router-outlet></router-outlet>

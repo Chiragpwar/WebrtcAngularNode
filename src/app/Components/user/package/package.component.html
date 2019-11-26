@@ -1,0 +1,497 @@
+<div class="app" id="app">
+    <div class="l-container">
+      <div *ngIf = 'Billing == "plan"' class="jstest-order-page-wrapper orderStepWrapper--gEgFy">
+        <div>
+          <h1 class="sectionHeader--1Rkp4">Choose your Pro plan</h1>
+          <p>Get 3 rooms, group mode (up to 12 participants) and custom branding.</p>
+          <div class="basePlanSelector--1IsRs component--3sZI1">
+            <div class="jstest-plan-container planContainer--2cdvM">
+              <div class="component--1YMIl" tabindex="0" (click)='SelectPackage("Monthly")'>
+                <div class="component--8bL1m infoContainer--1Nf7q Monthly selected--1kbjm">Monthly
+                  <div class="priceContainer--3E_XD">
+                    <span class="currency--2vP_h">USD</span><span class="price--3Qjo9">9.99</span><span>/mo</span></div>
+                  <div class="description--1gu4v">
+                    <p class="descriptionLine--1sbxi">Billed monthly</p>
+                  </div>
+                  <div *ngIf='plan' class="topBadge--1bpN1">New plan</div>
+                </div>
+              </div>
+              <div class="component--1YMIl" tabindex="0" (click)='SelectPackage("Annual")'>
+                <div class="component--8bL1m infoContainer--1Nf7q Annual">Annual
+                  <div class="priceContainer--3E_XD">
+                    <span class="currency--2vP_h">USD</span><span class="price--3Qjo9">8.33</span><span>/mo</span></div>
+                  <div class="description--1gu4v">
+                    <p class="descriptionLine--1sbxi">USD 99.90 billed annually</p>
+                  </div>
+                  <div *ngIf='!plan' class="topBadge--1bpN1">New plan</div>
+                  <aside class="discountBadge--1tER2">Save<br>17%</aside>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div  class="mtm">
+            <button (click) = 'ViewBiling()' class="component--2WwH7 jstest-orderstage-continue-button">
+              <div class="content--2L1S4">Continue </div>
+              <div class="loader--3ke_k">
+                <div class="loader--i6TT-"></div>
+              </div>
+            </button>
+          </div>
+          <div class="addOnSection--9duX8">
+            <h2 class="sectionHeader--1Rkp4">Add-ons</h2>
+            <div class="jstest-recording-addon addOnItemWrapper--3vSD3">
+              <div class="component--8bL1m MyAddon">
+                <div class="component--3jHgz">
+                  <div class="titleContainer--12qgv">
+                    <p class="title--2AWbX">
+                      <strong>Recording (Chrome only)</strong>
+                    </p>
+                    <p class="price--1dhDd">${{AddonPrice.split('.')[0]}}<span class="term--VoJa6">USD/mo</span></p>
+                  </div>
+                  <p class="description--3NsfE">Record your meetings! Download the recordings to your device and share for future referencing. Only available in Chrome browsers.</p>
+                  <div class="buttonContainer--VKL84">
+                    <button (click)= 'AddOns()' class="component--2WwH7 button--1Xa9g component--secondary--2q75W">
+                      <div class="content--2L1S4">{{butontext}}</div>
+                      <div class="loader--3ke_k">
+                        <div class="loader--i6TT-"></div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <aside>
+            <div class="orderSummary--3fcnb">
+              <h1 class="subSectionHeader--L1hPe">Order summary</h1>
+              <table class="table--38snS">
+                <tbody>
+                  <tr class="invoiceItemRow--1VseV">
+                    <td>Pro {{planname}}</td>
+                    <td class="priceCell--AvFeu">$ {{price}}</td>
+                  </tr>
+                  <tr *ngIf = 'planAddon' class="invoiceItemRow--1VseV">
+                    <td>Recording {{planname}}</td>
+                    <td class="priceCell--AvFeu">$ {{AddonPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="renewalInfo--1hqwo">Starting: immediately<br>Renews: {{currentdate}} {{month}} {{year}}</p>
+              <hr class="separator--3Kj6K">
+              <table class="table--38snS">
+                <tbody>
+                  <tr class="totalPriceRow--1m4PD">
+                    <td>Today's charge</td>
+                    <td class="jstest-total-price priceCell--AvFeu">$ {{totalAmount}} USD</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="informationFooter--8LT9H">
+              <p>All major credit and debit cards accepted</p>
+              <p><img class="cardIcon--3WMkc" src="https://d32wid4gq0d4kh.cloudfront.net/3ffdb6e3f2d2a5039fefd61a30c82241.svg" alt="Mastercard"><img class="cardIcon--3WMkc" src="https://d32wid4gq0d4kh.cloudfront.net/a3ac80d9522d92e155342d07fd86b1f8.svg" alt="Visa"><img class="cardIcon--3WMkc" src="https://d32wid4gq0d4kh.cloudfront.net/f47059b6298aa398f2d7a85b9cd8f390.svg" alt="American Express"><img class="cardIcon--3WMkc cardIcon--sslSecure--172Ia" src="https://d32wid4gq0d4kh.cloudfront.net/615e3a0f3bf06f8aa5652258e0857530.svg" alt=""></p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div *ngIf = 'Billing == "Billing"' class="jstest-order-page-wrapper orderStepWrapper--gEgFy">
+
+          <div>
+            <h3>Billing Information</h3>
+            <form class="jstest-billing-information-form component--ZO9oO">
+              <label class="component--2MyI5 jstest-BillingInformation-emailInput emailInput--cqo8g jstest-input-wrapper">
+                <div class="labelText--4i6G4">Billing email</div><input  [(ngModel)]="userBilling.billingEmail" #billingEmail="ngModel" name="billingEmail" autocomplete="email" placeholder="email@example.com" type="email" required="" class="inputElement--1P2yy" >
+                <small class="helpText--Yn0vL">Invoice receipts will be sent here</small>
+              </label>
+              <label class="component--2MyI5 jstest-BillingInformation-vatInput jstest-input-wrapper">
+                <div class="labelText--4i6G4">VAT ID Number (optional)</div><input [(ngModel)]="userBilling.vatIdentifier" #vatIdentifier="ngModel" name="vatIdentifier" placeholder="XX000000" type="text" class="inputElement--1P2yy">
+                <small class="helpText--Yn0vL"></small>
+              </label>
+              <section *ngIf = 'optionalFields' class="jstest-vat-and-billing-optional-fields extraFields--UgpuJ">
+                <label class="component--2MyI5 jstest-BillingInformation-nameInput nameInput--20rAu jstest-input-wrapper">
+                  <div class="labelText--4i6G4">Name on bill</div><input [(ngModel)]="userBilling.billingName" #billingName="ngModel" name="billingName" autocomplete="name" placeholder="Name on bill" type="text" tabindex="-1" class="inputElement--1P2yy" value="">
+                  <small class="helpText--Yn0vL"></small>
+                </label>
+                <label class="component--2MyI5 jstest-BillingInformation-addressInput addressField--23v3u jstest-input-wrapper">
+                  <div class="labelText--4i6G4">Address</div><input [(ngModel)]="userBilling.billingAddress" #billingAddress="ngModel" name="billingAddress" autocomplete="street-address" placeholder="Address" type="text" tabindex="-1" class="inputElement--1P2yy" value="">
+                  <small class="helpText--Yn0vL"></small>
+                </label>
+                <label class="component--2MyI5 jstest-BillingInformation-postcodeInput postcodeInput--3BfiY jstest-input-wrapper">
+                  <div class="labelText--4i6G4">Postcode</div><input [(ngModel)]="userBilling.billingPostcode" #billingPostcode="ngModel" name="billingPostcode" autocomplete="postal-code" placeholder="Postcode" type="text" tabindex="-1" class="inputElement--1P2yy" value="">
+                  <small class="helpText--Yn0vL"></small>
+                </label>
+                <label class="component--2MyI5 jstest-BillingInformation-cityInput cityInput--_UW9G jstest-input-wrapper">
+                  <div class="labelText--4i6G4">City</div><input [(ngModel)]="userBilling.billingCity" #billingCity="ngModel" name="billingCity" placeholder="City" type="text" tabindex="-1" class="inputElement--1P2yy" value="">
+                  <small class="helpText--Yn0vL"></small>
+                </label>
+              </section>
+              <label class="component--2MyI5 jstest-country-selector jstest-BillingInformation-countrySelect addressField--23v3u component--2wPpW jstest-input-wrapper">
+                <div class="labelText--4i6G4">Country</div>
+                <select class="inputElement--3rzf5" [(ngModel)]="userBilling.Country" #Country="ngModel" name="Country" required="">
+                  <option value="" style="display: none;">Select country</option>
+                  <option value="af">Afghanistan</option>
+                  <option value="ax">Åland Islands</option>
+                  <option value="al">Albania</option>
+                  <option value="dz">Algeria</option>
+                  <option value="as">American Samoa</option>
+                  <option value="ad">Andorra</option>
+                  <option value="ao">Angola</option>
+                  <option value="ai">Anguilla</option>
+                  <option value="aq">Antarctica</option>
+                  <option value="ag">Antigua &amp; Barbuda</option>
+                  <option value="ar">Argentina</option>
+                  <option value="am">Armenia</option>
+                  <option value="aw">Aruba</option>
+                  <option value="au">Australia</option>
+                  <option value="at">Austria</option>
+                  <option value="az">Azerbaijan</option>
+                  <option value="bs">Bahamas</option>
+                  <option value="bh">Bahrain</option>
+                  <option value="bd">Bangladesh</option>
+                  <option value="bb">Barbados</option>
+                  <option value="by">Belarus</option>
+                  <option value="be">Belgium</option>
+                  <option value="bz">Belize</option>
+                  <option value="bj">Benin</option>
+                  <option value="bm">Bermuda</option>
+                  <option value="bt">Bhutan</option>
+                  <option value="bo">Bolivia</option>
+                  <option value="bq">Bonaire, Sint Eustatius &amp; Saba</option>
+                  <option value="ba">Bosnia Herzegovina</option>
+                  <option value="bw">Botswana</option>
+                  <option value="bv">Bouvet Island</option>
+                  <option value="br">Brazil</option>
+                  <option value="io">British Indian Ocean Territory</option>
+                  <option value="bn">Brunei</option>
+                  <option value="bg">Bulgaria</option>
+                  <option value="bf">Burkina Faso</option>
+                  <option value="bi">Burundi</option>
+                  <option value="kh">Cambodia</option>
+                  <option value="cm">Cameroon</option>
+                  <option value="ca">Canada</option>
+                  <option value="cv">Cape Verde Islands</option>
+                  <option value="ky">Cayman Islands</option>
+                  <option value="cf">Central African Republic</option>
+                  <option value="td">Chad</option>
+                  <option value="cl">Chile</option>
+                  <option value="cn">China</option>
+                  <option value="cx">Christmas Island</option>
+                  <option value="cc">Cocos (Keeling) Islands</option>
+                  <option value="co">Colombia</option>
+                  <option value="km">Comoros</option>
+                  <option value="cg">Congo</option>
+                  <option value="cd">Congo (Democratic Republic of the)</option>
+                  <option value="ck">Cook Islands</option>
+                  <option value="cr">Costa Rica</option>
+                  <option value="ci">Ivory Coast</option>
+                  <option value="hr">Croatia</option>
+                  <option value="cu">Cuba</option>
+                  <option value="cw">Curaçao</option>
+                  <option value="cy">Cyprus</option>
+                  <option value="cz">Czech Republic</option>
+                  <option value="dk">Denmark</option>
+                  <option value="dj">Djibouti</option>
+                  <option value="dm">Dominica</option>
+                  <option value="do">Dominican Republic</option>
+                  <option value="ec">Ecuador</option>
+                  <option value="eg">Egypt</option>
+                  <option value="sv">El Salvador</option>
+                  <option value="gq">Equatorial Guinea</option>
+                  <option value="er">Eritrea</option>
+                  <option value="ee">Estonia</option>
+                  <option value="et">Ethiopia</option>
+                  <option value="fk">Falkland Islands</option>
+                  <option value="fo">Faroe Islands</option>
+                  <option value="fj">Fiji</option>
+                  <option value="fi">Finland</option>
+                  <option value="fr">France</option>
+                  <option value="gf">French Guiana</option>
+                  <option value="pf">French Polynesia</option>
+                  <option value="tf">French Southern Territories</option>
+                  <option value="ga">Gabon</option>
+                  <option value="gm">Gambia</option>
+                  <option value="ge">Georgia</option>
+                  <option value="de">Germany</option>
+                  <option value="gh">Ghana</option>
+                  <option value="gi">Gibraltar</option>
+                  <option value="gr">Greece</option>
+                  <option value="gl">Greenland</option>
+                  <option value="gd">Grenada</option>
+                  <option value="gp">Guadeloupe</option>
+                  <option value="gu">Guam</option>
+                  <option value="gt">Guatemala</option>
+                  <option value="gg">Guernsey</option>
+                  <option value="gn">Guinea</option>
+                  <option value="gw">Guinea - Bissau</option>
+                  <option value="gy">Guyana</option>
+                  <option value="ht">Haiti</option>
+                  <option value="hn">Honduras</option>
+                  <option value="hk">Hong Kong</option>
+                  <option value="hu">Hungary</option>
+                  <option value="is">Iceland</option>
+                  <option value="in">India</option>
+                  <option value="id">Indonesia</option>
+                  <option value="ir">Iran</option>
+                  <option value="iq">Iraq</option>
+                  <option value="ie">Ireland</option>
+                  <option value="im">Isle of Man</option>
+                  <option value="il">Israel</option>
+                  <option value="it">Italy</option>
+                  <option value="jm">Jamaica</option>
+                  <option value="jp">Japan</option>
+                  <option value="je">Jersey</option>
+                  <option value="jo">Jordan</option>
+                  <option value="kz">Kazakhstan</option>
+                  <option value="ke">Kenya</option>
+                  <option value="ki">Kiribati</option>
+                  <option value="kp">Korea North</option>
+                  <option value="kr">Korea South</option>
+                  <option value="kw">Kuwait</option>
+                  <option value="kg">Kyrgyzstan</option>
+                  <option value="la">Laos</option>
+                  <option value="lv">Latvia</option>
+                  <option value="lb">Lebanon</option>
+                  <option value="ls">Lesotho</option>
+                  <option value="lr">Liberia</option>
+                  <option value="ly">Libya</option>
+                  <option value="li">Liechtenstein</option>
+                  <option value="lt">Lithuania</option>
+                  <option value="lu">Luxembourg</option>
+                  <option value="mo">Macao</option>
+                  <option value="mk">Macedonia</option>
+                  <option value="mg">Madagascar</option>
+                  <option value="mw">Malawi</option>
+                  <option value="my">Malaysia</option>
+                  <option value="mv">Maldives</option>
+                  <option value="ml">Mali</option>
+                  <option value="mt">Malta</option>
+                  <option value="mh">Marshall Islands</option>
+                  <option value="mq">Martinique</option>
+                  <option value="mr">Mauritania</option>
+                  <option value="mu">Mauritius</option>
+                  <option value="yt">Mayotte</option>
+                  <option value="mx">Mexico</option>
+                  <option value="fm">Micronesia</option>
+                  <option value="md">Moldova</option>
+                  <option value="mc">Monaco</option>
+                  <option value="mn">Mongolia</option>
+                  <option value="me">Montenegro</option>
+                  <option value="ms">Montserrat</option>
+                  <option value="ma">Morocco</option>
+                  <option value="mz">Mozambique</option>
+                  <option value="mm">Myanmar</option>
+                  <option value="na">Namibia</option>
+                  <option value="nr">Nauru</option>
+                  <option value="np">Nepal</option>
+                  <option value="nl">Netherlands</option>
+                  <option value="nc">New Caledonia</option>
+                  <option value="nz">New Zealand</option>
+                  <option value="ni">Nicaragua</option>
+                  <option value="ne">Niger</option>
+                  <option value="ng">Nigeria</option>
+                  <option value="nu">Niue</option>
+                  <option value="nf">Norfolk Islands</option>
+                  <option value="mp">Northern Marianas</option>
+                  <option value="no">Norway</option>
+                  <option value="om">Oman</option>
+                  <option value="pk">Pakistan</option>
+                  <option value="pw">Palau</option>
+                  <option value="ps">Palestine</option>
+                  <option value="pa">Panama</option>
+                  <option value="pg">Papua New Guinea</option>
+                  <option value="py">Paraguay</option>
+                  <option value="pe">Peru</option>
+                  <option value="ph">Philippines</option>
+                  <option value="pn">Pitcairn</option>
+                  <option value="pl">Poland</option>
+                  <option value="pt">Portugal</option>
+                  <option value="pr">Puerto Rico</option>
+                  <option value="qa">Qatar</option>
+                  <option value="re">Reunion</option>
+                  <option value="ro">Romania</option>
+                  <option value="ru">Russia</option>
+                  <option value="rw">Rwanda</option>
+                  <option value="ws">Samoa</option>
+                  <option value="sm">San Marino</option>
+                  <option value="st">Sao Tome &amp; Principe</option>
+                  <option value="sa">Saudi Arabia</option>
+                  <option value="sn">Senegal</option>
+                  <option value="rs">Serbia</option>
+                  <option value="sc">Seychelles</option>
+                  <option value="sl">Sierra Leone</option>
+                  <option value="sg">Singapore</option>
+                  <option value="sx">Sint Maarten</option>
+                  <option value="sk">Slovak Republic</option>
+                  <option value="si">Slovenia</option>
+                  <option value="sb">Solomon Islands</option>
+                  <option value="so">Somalia</option>
+                  <option value="za">South Africa</option>
+                  <option value="gs">S. Georgia &amp; S. Sandwich Islands</option>
+                  <option value="ss">South Sudan</option>
+                  <option value="es">Spain</option>
+                  <option value="lk">Sri Lanka</option>
+                  <option value="bl">St. Barthélemy</option>
+                  <option value="sh">St. Helena</option>
+                  <option value="kn">St. Kitts</option>
+                  <option value="lc">St. Lucia</option>
+                  <option value="mf">St. Martin</option>
+                  <option value="pm">St. Pierre and Miquelon</option>
+                  <option value="vc">St. Vincent &amp; the Grenadines</option>
+                  <option value="sd">Sudan</option>
+                  <option value="sr">Suriname</option>
+                  <option value="sj">Svalbard &amp; Jan Mayen</option>
+                  <option value="sz">Swaziland</option>
+                  <option value="se">Sweden</option>
+                  <option value="ch">Switzerland</option>
+                  <option value="sy">Syria</option>
+                  <option value="tw">Taiwan</option>
+                  <option value="tj">Tajikstan</option>
+                  <option value="tz">Tanzania, United Republic of</option>
+                  <option value="th">Thailand</option>
+                  <option value="tl">Timor-Leste</option>
+                  <option value="tg">Togo</option>
+                  <option value="tk">Tokelau</option>
+                  <option value="to">Tonga</option>
+                  <option value="tt">Trinidad &amp; Tobago</option>
+                  <option value="tn">Tunisia</option>
+                  <option value="tr">Turkey</option>
+                  <option value="tm">Turkmenistan</option>
+                  <option value="tc">Turks &amp; Caicos Islands</option>
+                  <option value="tv">Tuvalu</option>
+                  <option value="ug">Uganda</option>
+                  <option value="gb">UK</option>
+                  <option value="ua">Ukraine</option>
+                  <option value="ae">United Arab Emirates</option>
+                  <option value="uy">Uruguay</option>
+                  <option value="us">USA</option>
+                  <option value="uz">Uzbekistan</option>
+                  <option value="vu">Vanuatu</option>
+                  <option value="va">Vatican City</option>
+                  <option value="ve">Venezuela</option>
+                  <option value="vn">Vietnam</option>
+                  <option value="vg">Virgin Islands - British</option>
+                  <option value="vi">Virgin Islands - US</option>
+                  <option value="wf">Wallis &amp; Futuna</option>
+                  <option value="ye">Yemen (North)</option>
+                  <option value="ye">Yemen (South)</option>
+                  <option value="zm">Zambia</option>
+                  <option value="zw">Zimbabwe</option>
+                </select>
+                <small class="helpText--Yn0vL">Country of residence is needed for VAT purposes.</small>
+              </label>
+              <div class="extraFieldsButtonWrapper--3N6py">
+                <button (click) = 'ShowFields()' type="button" class="component--2WwH7 jstest-vat-and-billing-show-and-hide-fields-link extraFieldsButton--rl4vj component--link--18E0A">
+                  <div class="content--2L1S4">Show optional fields</div>
+                  <div class="loader--3ke_k">
+                    <div class="loader--i6TT-"></div>
+                  </div>
+                </button>
+              </div>
+            </form>
+            <div class="mbm">
+              <button (click) = 'PayBill(userBilling)' class="component--2WwH7 jstest-orderstage-continue-button">
+                <div class="content--2L1S4">Continue</div>
+                <div class="loader--3ke_k">
+                  <div class="loader--i6TT-"></div>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div>
+              <aside>
+                  <div class="orderSummary--3fcnb">
+                    <h1 class="subSectionHeader--L1hPe">Order summary</h1>
+                    <table class="table--38snS">
+                      <tbody>
+                        <tr class="invoiceItemRow--1VseV">
+                          <td>Pro {{planname}}</td>
+                          <td class="priceCell--AvFeu">$ {{price}}</td>
+                        </tr>
+                        <tr *ngIf = 'planAddon' class="invoiceItemRow--1VseV">
+                          <td>Recording {{planname}}</td>
+                          <td class="priceCell--AvFeu">$ {{AddonPrice}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p class="renewalInfo--1hqwo">Starting: immediately<br>Renews: {{currentdate}} {{month}} {{year}}</p>
+                    <hr class="separator--3Kj6K">
+                    <table class="table--38snS">
+                      <tbody>
+                        <tr class="totalPriceRow--1m4PD">
+                          <td>Today's charge</td>
+                          <td class="jstest-total-price priceCell--AvFeu">$ {{totalAmount}} USD</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="informationFooter--8LT9H">
+                    <p>All major credit and debit cards accepted</p>
+                    <p><img class="cardIcon--3WMkc" src="https://d32wid4gq0d4kh.cloudfront.net/3ffdb6e3f2d2a5039fefd61a30c82241.svg" alt="Mastercard"><img class="cardIcon--3WMkc" src="https://d32wid4gq0d4kh.cloudfront.net/a3ac80d9522d92e155342d07fd86b1f8.svg" alt="Visa"><img class="cardIcon--3WMkc" src="https://d32wid4gq0d4kh.cloudfront.net/f47059b6298aa398f2d7a85b9cd8f390.svg" alt="American Express"><img class="cardIcon--3WMkc cardIcon--sslSecure--172Ia" src="https://d32wid4gq0d4kh.cloudfront.net/615e3a0f3bf06f8aa5652258e0857530.svg" alt=""></p>
+                  </div>
+                </aside>
+          </div>
+      </div>
+
+      <div [hidden]="paybill != null" >
+        <div  class="jstest-order-page-wrapper orderStepWrapper--gEgFy">
+          <h1 class="sectionHeader--1Rkp4">Payment</h1>
+          <div class="jstest-credit-card-form creditCardForm--3fcE7">
+            <label style="margin-left: -299%; margin-top: 32px;" class="label--2vtIx">
+              <div class="labelText--2e7ls" style="font-size: 15px !important;">Credit or debit card</div>
+                    <div style="width: 779px;" id="card-element"></div>
+            </label>
+            <p style="margin-left: -808px;" class="informationText--54fM3">Your credit card will be stored with our secure partner
+              <a class="" href="https://stripe.com" target="_blank" rel="noopener noreferrer">Stripe</a>.</p>
+          </div>
+          <div style="margin-top: -29px;" class="mtm mbm">
+            <button (click)='Payment()' class="component--2WwH7 jstest-orderstage-continue-button">
+              <div class="content--2L1S4">Pay</div>
+
+            </button>
+          </div>
+              <aside>
+                <div class="orderSummary--3fcnb topPo">
+                  <h1 class="subSectionHeader--L1hPe">Order summary</h1>
+                  <table class="table--38snS">
+                    <tbody>
+                      <tr class="invoiceItemRow--1VseV">
+                        <td>Pro {{planname}}</td>
+                        <td class="priceCell--AvFeu">$ {{price}}</td>
+                      </tr>
+                      <tr *ngIf = 'planAddon' class="invoiceItemRow--1VseV">
+                        <td>Recording {{planname}}</td>
+                        <td class="priceCell--AvFeu">$ {{AddonPrice}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p class="renewalInfo--1hqwo">Starting: immediately<br>Renews: {{currentdate}} {{month}} {{year}}</p>
+                  <hr class="separator--3Kj6K">
+                  <table class="table--38snS">
+                    <tbody>
+                      <tr class="totalPriceRow--1m4PD">
+                        <td>Today's charge</td>
+                        <td class="jstest-total-price priceCell--AvFeu">$ {{totalAmount}} USD</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="informationFooter--8LT9H">
+                  <p>All major credit and debit cards accepted</p>
+                  <p><img class="cardIcon--3WMkc" src="https://d32wid4gq0d4kh.cloudfront.net/3ffdb6e3f2d2a5039fefd61a30c82241.svg" alt="Mastercard"><img class="cardIcon--3WMkc" src="https://d32wid4gq0d4kh.cloudfront.net/a3ac80d9522d92e155342d07fd86b1f8.svg" alt="Visa"><img class="cardIcon--3WMkc" src="https://d32wid4gq0d4kh.cloudfront.net/f47059b6298aa398f2d7a85b9cd8f390.svg" alt="American Express"><img class="cardIcon--3WMkc cardIcon--sslSecure--172Ia" src="https://d32wid4gq0d4kh.cloudfront.net/615e3a0f3bf06f8aa5652258e0857530.svg" alt=""></p>
+                </div>
+              </aside>
+      </div>
+      </div>
+       
+    </div>
+  </div>
+
+
+  <ngx-spinner bdopacity="0" bdcolor="#1d5eb2" size="large" color="#eeeeee" type="ball-clip-rotate-pulse">
+    <p style="color: white; bottom: 25%">
+    Wait a while payment are processing </p>
+  </ngx-spinner>
+
