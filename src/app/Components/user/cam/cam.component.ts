@@ -489,6 +489,7 @@ videoclose() {
   this.localStream = stream;
   this.videoModal.nativeElement.srcObject =  this.localStream;
   }
+
     start() {
       navigator.mediaDevices.getUserMedia({
       audio: true,
@@ -497,8 +498,7 @@ videoclose() {
     .then(this.gotStream.bind(this))
     .catch((e) => {
     this.Camon = 'disable';
-    console.log(this.Camon);
-    this.toastr.info('Try connecting a webcam to join the conversation.', 'We cant detect a camera. Others cant see you.');
+    this.toastr.warning('Try connecting a webcam to join the conversation.', 'We cant detect a camera. Others cant see you.');
     });
   }
 

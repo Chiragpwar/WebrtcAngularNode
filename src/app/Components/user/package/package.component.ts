@@ -5,6 +5,7 @@ import {Billing} from '../../../modals/modal';
 import {AuthServices} from '../../../service/CommenService';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-package',
@@ -37,7 +38,7 @@ export class PackageComponent implements OnInit {
   'July', 'August', 'September', 'October', 'November', 'December'
    ];
   constructor( private stripeService: StripeService, private Service: AuthServices, private Toastr: ToastrService,
-               public spinner: NgxSpinnerService) {  }
+               public spinner: NgxSpinnerService, private route: Router) {  }
 
   elementsOptions: ElementsOptions = {
     locale: 'en'
@@ -195,6 +196,9 @@ export class PackageComponent implements OnInit {
       if (this.amt != null) {
         this.Toastr.success('Payment succeeded !!');
       }
+      setTimeout(() => {
+        this.route.navigate(['/meeting']);
+      }, 3000);
 
     });
     setTimeout(() => {

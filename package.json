@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
-    "angularx-social-login": "~1.1.9",
+    "angularx-social-login": "^1.1.9",
     "ngx-clipboard": "^12.2.1",
     "ngx-socket-io": "^3.0.1",
     "ngx-spinner": "^8.0.3",
