@@ -51,13 +51,13 @@
         </div>
       </div>
       <div class="lp-element lp-pom-box" id="lp-pom-box-194">
-        <form name="form" (ngSubmit)="f.form.valid && SendMail()"  class="hs-form stacked hs-form-private hs-form-44c02806-d69f-4faf-bcf8-7840fdd35693 hs-form-44c02806-d69f-4faf-bcf8-7840fdd35693_d44a5488-ef53-4d58-9e71-1232f2a5a6ed">
+        <form name="form" (ngSubmit)=" SendMail()"  class="hs-form stacked hs-form-private hs-form-44c02806-d69f-4faf-bcf8-7840fdd35693 hs-form-44c02806-d69f-4faf-bcf8-7840fdd35693_d44a5488-ef53-4d58-9e71-1232f2a5a6ed">
           <fieldset class="form-columns-1">
             <div class="hs_email hs-email hs-fieldtype-text field hs-form-field">
               <label  placeholder="Enter your Work Email">
                 <span>Work Email</span><span class="hs-form-required">*</span></label>
-              <div class="input"><input [(ngModel)]="Contactus.WorkEmail" #WorkEmail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && WorkEmail.invalid }" required   class="hs-input" type="email" name="WorkEmail" ></div>
-              <div *ngIf="f.submitted && WorkEmail.invalid" class="invalid-feedback">
+              <div class="input"><input [(ngModel)]="Contactus.WorkEmail" #WorkEmail="ngModel" class="hs-input" type="email" name="WorkEmail" ></div>
+              <div class="invalid-feedback">
                 <div *ngIf="WorkEmail.errors.required">Work Email is required</div>
             </div>
             </div>
@@ -73,16 +73,16 @@
             <div class="hs_firstname hs-firstname hs-fieldtype-text field hs-form-field">
               <label class="" placeholder="Enter your First name">
                 <span data-reactid=".hbspt-forms-0.1:$2.1:$firstname.0.0">First name</span><span class="hs-form-required" data-reactid=".hbspt-forms-0.1:$2.1:$firstname.0.1">*</span></label>
-              <div class="input"><input  class="hs-input" type="text" [(ngModel)]="Contactus.FirstName" #FirstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && FirstName.invalid }" required   class="hs-input" type="text" name="FirstName"></div>
-              <div *ngIf="f.submitted && FirstName.invalid" class="invalid-feedback">
+              <div class="input"><input  class="hs-input" type="text" [(ngModel)]="Contactus.FirstName" #FirstName="ngModel" required   class="hs-input" type="text" name="FirstName"></div>
+              <div  class="invalid-feedback">
                 <div *ngIf="FirstName.errors.required">First name is required</div>
             </div>
             </div>
             <div class="hs_lastname hs-lastname hs-fieldtype-text field hs-form-field">
               <label  class="" placeholder="Enter your Last name">
                 <span>Last name</span><span class="hs-form-required">*</span></label>
-              <div class="input"><input class="hs-input" type="text" [(ngModel)]="Contactus.LastName" #LastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && LastName.invalid }" required   class="hs-input" type="text" name="LastName" ></div>
-              <div *ngIf="f.submitted && LastName.invalid" class="invalid-feedback">
+              <div class="input"><input class="hs-input" type="text" [(ngModel)]="Contactus.LastName" #LastName="ngModel"  required   class="hs-input" type="text" name="LastName" ></div>
+              <div class="invalid-feedback">
                 <div *ngIf="LastName.errors.required">Last name is required</div>
             </div>
             </div>
