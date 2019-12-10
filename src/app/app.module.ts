@@ -43,6 +43,7 @@ import { OrderDetailComponent } from './Components/user/order-detail/order-detai
 import { PackageComponent } from './Components/user/package/package.component';
 import { NgxStripeModule } from 'ngx-stripe';
 import { BussinessAccountComponent } from './Components/user/bussiness-account/bussiness-account.component';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 const socketconfig: SocketIoConfig = {
   url: 'http://localhost:3000/',
@@ -105,6 +106,7 @@ export function provideConfig() {
     NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
+    PickerModule,
     NgxStripeModule.forRoot('pk_test_xR2HN61CGq9RMib7obP5ieDz00Xhs4nu2t'),
     SocketIoModule.forRoot(socketconfig)
   ],

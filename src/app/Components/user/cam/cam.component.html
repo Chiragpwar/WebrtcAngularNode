@@ -223,7 +223,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <aside (keydown)="keyDownFunction($event, submit_message.value)"  id="sidebar_secondary" class="tabbed_sidebar chat_sidebar">
-
+    
+  <emoji-mart *ngIf = 'emojiopen' (emojiClick)="addEmoji($event)"></emoji-mart>
   <div class="popup-head">
     <div class="popup-head-left pull-left"></div>
     <div class="popup-head-right pull-right">
@@ -273,9 +274,10 @@
           </a>
         </span> -->
         <input style="border: 0;" type="text" placeholder="Type a message" #submit_message  autocomplete="off" class="md-input empty" >
-        <span style="vertical-align: sub;" class="uk-input-group-addon">
+        <span style="vertical-align: sub;" class="uk-input-group-addon"> 
         </span>
       </div>
+      <button class="btn chnagepos" (click)= 'openemoji()'><i class="fa fa-smile-o"></i></button>
     </div>
   </div>
 

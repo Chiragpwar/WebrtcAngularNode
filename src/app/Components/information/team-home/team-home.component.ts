@@ -15,7 +15,9 @@ export class TeamHomeComponent implements OnInit {
       this.route.navigate([this.Url]);
     } else if (this.Url.indexOf('cookie') >= 0) {
       this.route.navigate([this.Url]);
-    }  else {
+    }  else if (this.Url.indexOf('press') >= 0) {
+      this.route.navigate([this.Url]);
+    } else {
       this.route.navigate(['/ourteam/team']);
     }
   }

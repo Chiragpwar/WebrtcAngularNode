@@ -81,11 +81,10 @@ export class CamComponent implements OnInit {
  remotevideodata: any;
  VideoPlayername: any;
  Camon = '';
-
+ emojiopen = false;
 
  async ngOnInit() {
     this.Camon = 'enable';
-    console.log(this.Camon);
     this.content = document.querySelector('#chat');
     this.mic = this.micon;
    // this.startRecording();
@@ -131,6 +130,19 @@ export class CamComponent implements OnInit {
         }
       } else {
         this.loading = true;
+      }
+    });
+
+    this.socket.on('stopScreen', async (val) => {
+      if (val.val != null) {
+          const remotevideo: HTMLVideoElement = this.remotevideo.nativeElement;
+          remotevideo.style.height = '269px';
+          remotevideo.srcObject = null;
+          remotevideo.style.backgroundImage = 'linear-gradient(40deg, #1f83c2, transparent)';
+          const localvideo: HTMLVideoElement = this.localvideo.nativeElement;
+          localvideo.style.height = '269px';
+          localvideo.srcObject = null;
+          localvideo.style.backgroundImage = 'linear-gradient(40deg, #1f83c2, transparent)';
       }
     });
 
@@ -197,6 +209,7 @@ export class CamComponent implements OnInit {
           this.Currentowner = Response['name'];
           // tslint:disable-next-line: no-string-literal
           this.chatpic = Response['photoUrl'];
+          navigator.mediaDevices.getUserMedia({video: true, audio: true });
           this.mediaconnect();
           this.start();
           setTimeout(() => {
@@ -228,8 +241,17 @@ async getip() {
 });
 }
 
+openemoji() {
+  this.emojiopen = true;
+}
+
+addEmoji(e) {
+  this.emojiopen = false;
+  this.submitmessage.nativeElement.value  += e.emoji.native;
+}
+
 async  mediaconnect() {
-  this.right = await navigator.mediaDevices.getUserMedia({video: true, audio: true });
+ // this.right = await navigator.mediaDevices.getUserMedia({video: true, audio: true });
   const Device =  await navigator.mediaDevices.enumerateDevices();
   this.communication =  Device.filter(x => x.kind === 'audioinput');
   this.speakers = Device.filter(x => x.kind === 'audiooutput');
@@ -262,28 +284,18 @@ async Screenshare() {
   }, 20000);
 
    this.stream.getVideoTracks()[0].addEventListener('ended', () => this.ClearSharedata());
-  //  this.streams.active = this.stream.active;
-  //  this.streams.id = this.stream.id;
-  //  this.streams.onaddtrack = this.stream.onaddtrack;
-  //  this.streams.onremovetrack = this.stream.onremovetrack;
-  //  this.dataservice.getIds(this.stream);
-  //  const binarydata = [];
-  //  binarydata.push(this.stream);
-  // //  const video: HTMLVideoElement = this.remotevideo.nativeElement;
-  // //  video.srcObject = this.stream;
-  // //  this.app =  new Uint8Array(binarydata);
-  //  this.app = window.URL.createObjectURL(new Blob(binarydata, {type: 'video/mp4'}));
-  //  if (this.stream != null) {
-  //      this.socket.emit('sharescreen', {
-  //    MediaStream : this.app
-  //   });
-  // }
 }
 
 ClearSharedata() {
   const recordRTC = this.recordRTC;
   clearInterval(this.app);
   recordRTC.clearRecordedData();
+  this.socket.emit('stopScreen', {
+    screen : 'screen'
+   });
+  this.socket.emit('sharescreen', {
+    MediaStream : null
+   });
   return false;
 }
 
@@ -376,6 +388,7 @@ videoclose() {
     const stream = this.stream;
     stream.getAudioTracks().forEach(track => track.stop());
     stream.getVideoTracks().forEach(track => track.stop());
+   // this.start();
   }
 
   VideoPlay() {
@@ -465,7 +478,6 @@ videoclose() {
   }
 
  async gotStream(stream) {
-  console.log(this.VideoPlayername);
   if (this.currentUser != null) {
    this.Calluser(stream , 'Local');
    this.app =  setInterval(() => {
@@ -498,7 +510,7 @@ videoclose() {
     .then(this.gotStream.bind(this))
     .catch((e) => {
     this.Camon = 'disable';
-    this.toastr.warning('Try connecting a webcam to join the conversation.', 'We cant detect a camera. Others cant see you.');
+    this.toastr.info('Try connecting a webcam to join the conversation.', 'We cant detect a camera. Others cant see you.');
     });
   }
 
@@ -658,7 +670,7 @@ videoclose() {
 
   trace(arg) {
     const now = (window.performance.now() / 1000).toFixed(3);
-    console.log(now + ': ', arg);
+   // console.log(now + ': ', arg);
   }
 
   copy(text) {
@@ -721,13 +733,15 @@ videoclose() {
   public FeedBack() {
   const recordRTC = this.recordRTC;
   const stream = this.localStream;
-  stream.getAudioTracks().forEach(track => track.stop());
-  stream.getVideoTracks().forEach(track => track.stop());
-  clearInterval(this.app);
-  this.socket.emit('CloseStream', {
-   stream: null
-  });
-  recordRTC.clearRecordedData();
+  if (stream != null) {
+    stream.getAudioTracks().forEach(track => track.stop());
+    stream.getVideoTracks().forEach(track => track.stop());
+    clearInterval(this.app);
+    this.socket.emit('CloseStream', {
+      stream: null
+     });
+    recordRTC.clearRecordedData();
+  }
   if (this.currentUser != null) {
       this.Routes.navigate(['/user/feedback']);
     } else {

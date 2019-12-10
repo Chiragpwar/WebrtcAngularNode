@@ -12,6 +12,5 @@ export class DataService {
   getIds(id: any) {
     this.messageSource.next(id);
   }
-
 }
 

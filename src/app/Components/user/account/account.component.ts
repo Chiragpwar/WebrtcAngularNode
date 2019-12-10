@@ -22,6 +22,7 @@ export class AccountComponent implements OnInit {
   userdata = new User();
   constructor(private service: AuthServices, private home: HomeComponent) { }
   @ViewChild('Inputname', null) namebox: ElementRef;
+  @ViewChild('imgs', null) imgs: ElementRef;
 
   ngOnInit() {
     this.GetDetail();
@@ -51,7 +52,11 @@ export class AccountComponent implements OnInit {
       this.name =   this.namebox.nativeElement.value;
       this.userdata.name = this.name;
       this.userdata.email = this.Email;
-      this.userdata.photoUrl = this.imageSrc;
+      if (this.imageSrc === undefined) {
+        this.userdata.photoUrl =  this.imgs.nativeElement.currentSrc;
+      } else {
+        this.userdata.photoUrl = this.imageSrc;
+      }
       this.service.updateuserprofile(this.userdata).subscribe(Response => {
         this.GetDetail();
         this.home.Changelayout();
